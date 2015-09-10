@@ -1,0 +1,15 @@
+{{document-title title="SPD"}}
+
+<header>
+	<nav>
+		<ul>
+			{{#if session.isAuthenticated}}
+			  <li><a {{ action 'invalidateSession' }}>Logout</a></li>
+			{{else}}
+			  <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+			{{/if}}
+		</ul> <!-- main-nav -->
+	</nav><!-- main-nav-wrap -->
+</header>
+
+{{outlet 'main'}}
