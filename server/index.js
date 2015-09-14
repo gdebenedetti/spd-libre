@@ -6,9 +6,8 @@ var bodyParser = require('body-parser');
 var globSync   = require('glob').sync;
 
 var apiProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'http://10.105.5.55:8000/apirest' } );
-var oauthProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'http://10.105.5.55:9000/o' } );
+var oauthProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'https://srv-sparl-5.hcdn.gob.ar:9000/o' } );
 var path = require('path');
-
 
 
 module.exports = function(app) {
@@ -26,4 +25,5 @@ module.exports = function(app) {
     oauthProxy.web(req, res);
   });
 };
+
 

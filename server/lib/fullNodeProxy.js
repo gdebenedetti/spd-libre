@@ -25,12 +25,12 @@ fullNodeProxy.prototype.createProxyServer = function(options) {
 }
 
 fullNodeProxy.prototype.web = function(req, res) {
-
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 	if(this.target) {
-        var headers = {};
+        var headers = {'content-type': 'application/x-www-form-urlencoded', 'rejectUnauthorized': 'false'};
 
         if (req.headers.authorization) {
-            headers = {'content-type': 'application/x-www-form-urlencoded', 'Authorization': req.headers.authorization};
+            headers = {'content-type': 'application/x-www-form-urlencoded', 'Authorization': req.headers.authorization, 'rejectUnauthorized': 'false'};
         }
         
         if(req.method=='GET'){
@@ -43,20 +43,16 @@ fullNodeProxy.prototype.web = function(req, res) {
             if (req.method=='POST') {
                 require('request').post({
                     uri:this.target+req.url,
-                    headers:{'content-type': 'application/x-www-form-urlencoded'},
+                    headers: headers,
                     form:req.body
                     },function(err,response,body){
-                        if (err) {
-                            if (err.code === 'ECONNRESET') {
-                                res.send(419);
-                            }
-                        }
+                        console.log(err);
                 }).pipe(res);
             } else {
                 if (req.method =="PUT") {
                     require('request').put({
                         uri:this.target+req.url,
-                        headers:{'content-type': 'application/x-www-form-urlencoded'},
+                        headers: headers,
                         form:req.body
                         },function(err,response,body){
                     }).pipe(res);                    
@@ -64,7 +60,7 @@ fullNodeProxy.prototype.web = function(req, res) {
                     if (req.method =="DELETE") {
                         require('request').del({
                             uri:this.target+req.url,
-                            headers:{'content-type': 'application/x-www-form-urlencoded'},
+                            headers: headers,
                             form:req.body
                             },function(err,response,body){
                         }).pipe(res);                    
