@@ -10,6 +10,11 @@ Router.map(function() {
   this.route("about");
   this.route("error");
   this.route("catchall", {path: '/*wildcard'});
+
+  this.resource('proyectos', function() {
+    this.route('show', { path: ':proyectos_id' });
+  });
+
 });
 
 export default Router;

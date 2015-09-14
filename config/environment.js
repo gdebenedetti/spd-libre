@@ -63,7 +63,8 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:oauth2-bearer'
+    authorizer: 'simple-auth-authorizer:oauth2-bearer',
+    session: 'session:custom'
   };
 
   ENV['simple-auth-oauth2'] = {

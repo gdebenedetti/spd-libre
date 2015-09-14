@@ -4,7 +4,8 @@
 	<nav>
 		<ul>
 			{{#if session.isAuthenticated}}
-			  <li><a {{ action 'invalidateSession' }}>Logout</a></li>
+			  <li>{{session.user.nombre}} {{session.user.apellido}} <a {{ action 'invalidateSession' }}>Logout</a></li>
+			  <li>{{#link-to 'proyectos.index'}} Mis Proyectos {{/link-to}}</li>
 			{{else}}
 			  <li>{{#link-to 'login'}}Login{{/link-to}}</li>
 			{{/if}}
