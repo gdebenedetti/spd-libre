@@ -1,8 +1,11 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+import InfinityRoute from "../../mixins/infinity-route";
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
-	model: function() {		
-		return this.store.find('proyecto');
-	},
+export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
+  _listName: 'model',
+  model: function() {
+      return this.infinityModel("proyecto", { perPage: 50, startingPage: 1});
+  },	
 });
+

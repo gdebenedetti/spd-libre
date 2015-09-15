@@ -10,7 +10,7 @@ export default DRFSerializer.extend({
 	extractMeta: function (store, type, payload) {
 		if (payload && payload.results) {
 	      // Sets the metadata for the type.
-	      store.metaForType(type, {
+	      store.setMetadataFor(type, {
 	        total: payload.count,
 	        next: payload.next,
 	        previous: payload.previous,
