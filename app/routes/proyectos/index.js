@@ -5,7 +5,7 @@ import InfinityRoute from "../../mixins/infinity-route";
 export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
   _listName: 'model',
   model: function() {
-      return this.infinityModel("proyecto", { perPage: 50, startingPage: 1});
+      return this.infinityModel("proyecto", { perPage: 25, startingPage: 1});
   },	
 });
 

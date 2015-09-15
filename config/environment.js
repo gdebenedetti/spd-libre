@@ -16,6 +16,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      client_id: 'K2io5Bw;3B5wCYhRoRbz5ifsx@;WR-LfMqkdHfa?',
+      client_secret: 'p!fY;iymLsP0IolSnkCAz6Tj;2:S?S6:od.q2ID7P.LaS87YBpWrmnUILE9u6gYwxvNuuX4dK8O=3L5cIHR5Xv.D=IXa3cmjl!S5aoNpskj.5puRWwAB7Rq97H@4o.@S',
+      host: 'http://localhost:4200',
+      
        minifyHTML: {
           enabled: true,
           minifierOptions: {
@@ -101,6 +105,7 @@ module.exports = function(environment) {
   ENV['simple-auth-oauth2'] = {
     serverTokenEndpoint: 'oauth/token/',
   };
+
   
   return ENV;
 };
