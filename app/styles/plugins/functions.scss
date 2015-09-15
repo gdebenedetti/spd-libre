@@ -1,0 +1,17 @@
+// A function helper to avoid having to type `map-get($z-layers, ...)`
+// ---
+// @param [string] $component: the layer to use
+// ---
+// @return [number] | [null]
+
+
+ 
+// _m-lightboxes.scss
+@function layer($name) {
+  @if map-has-key($layer, $name) {
+    @return map-get($layer, $name);  
+  }
+   
+  @warn "The key #{$name} is not in the map ’$layer’";
+  @return null;
+};

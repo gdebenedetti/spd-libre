@@ -1,0 +1,37 @@
+$layer: (
+  offcanvas: 1,
+  header: 100,
+  modal: 500,
+  dropdown: 10,
+  tooltip: 15
+);
+
+nav {
+	position: fixed;
+	z-index: layer(modal) + 1;
+	width: 150px;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+
+.main-content {
+	position: relative;
+	padding: 15px;
+	-webkit-transition: all 0.4s;
+	transition: all 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+	padding-top: 70px;
+    margin-right: 0;
+    margin-left: 150px;
+}
+
+header {
+	position: fixed;
+	left: 150px;
+	right: 0;
+	top: 0;
+	z-index: layer(header);
+}
+

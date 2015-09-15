@@ -1,0 +1,18 @@
+header {
+	height: 60px;
+	padding: 10px;
+	background: lighten($main-blue, 40%);
+    text-align: right;
+
+    .user-login {
+		float: right;
+		padding: 12px;
+
+		a {
+			margin-left: 10px;
+			padding-left: 10px;
+			cursor: pointer;
+			border-left: 1px solid #999;
+		}
+    }
+}

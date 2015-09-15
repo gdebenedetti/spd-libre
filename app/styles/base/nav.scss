@@ -1,0 +1,21 @@
+nav {
+	background: $main-blue;
+
+	.app-logo {
+		display: block;
+		height: 60px;
+		padding: 10px;
+		background: darken($main-blue, 10%);
+		text-align: center;
+
+		img {
+			width: 60px;
+		}
+	}
+}
+
+
+.app-logo {
+		
+}
+
