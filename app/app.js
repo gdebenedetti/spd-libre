@@ -12,7 +12,7 @@ Ember.MODEL_FACTORY_INJECTIONS = true;
 * @constructor
 */
 
-Ember.Inflector.inflector.irregular('perfil', 'perfiles');
+Ember.Inflector.inflector.irregular('comision', 'comisiones');
 
 var App = Ember.Application.extend({
 	/**

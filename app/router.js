@@ -15,6 +15,10 @@ Router.map(function() {
     this.route('show', { path: ':proyectos_id' });
   });
 
+  this.resource('comisiones', function() {
+    this.route('show', { path: ':comision_id' });
+  });
+
 });
 
 export default Router;

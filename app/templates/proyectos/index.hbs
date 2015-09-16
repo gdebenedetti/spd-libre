@@ -1,6 +1,6 @@
 
 <ul>
-{{#each content as |proyecto|}}
+{{#each model as |proyecto|}}
   <li>{{proyecto.codigo_exp}} {{#link-to 'proyectos.show' proyecto}}ver{{/link-to}}</li>
 {{/each}}
 </ul>

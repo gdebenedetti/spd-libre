@@ -1,0 +1,7 @@
+
+<ul>
+{{#each model as |comision|}}
+  <li>{{comision.datos.nombre}} {{#link-to 'comisiones.show' comision}}ver{{/link-to}}</li>
+{{/each}}
+</ul>
+{{infinity-loader infinityModel=model}}
