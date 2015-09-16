@@ -14,6 +14,8 @@ Ember.MODEL_FACTORY_INJECTIONS = true;
 
 Ember.Inflector.inflector.irregular('comision', 'comisiones');
 Ember.Inflector.inflector.irregular('legislador', 'legisladores');
+Ember.Inflector.inflector.irregular('citacion', 'citaciones');
+Ember.Inflector.inflector.irregular('lugar', 'lugares');
 
 var App = Ember.Application.extend({
 	/**
