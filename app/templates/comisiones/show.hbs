@@ -1,8 +1,8 @@
 <h2>{{model.comision.datos.nombre}}</h2>
 
 <ul>
-{{#each model.integrantes as |integrante|}}
-	<li>{{integrante.cargo}} {{integrante.fk_legislador.cargo}} {{integrante.fk_legislador.distrito}} {{integrante.fk_legislador.fk_persona_fisica.datos.nombre}}</li>
+{{#each model.comision.legisladores as |integrante|}}
+	<li>{{integrante.cargo}} {{integrante.fk_legislador.cargo}} {{integrante.fk_legislador.distrito}} {{integrante.fk_legislador.fk_persona_fisica.datos.nombre}} {{integrante.fk_legislador.fk_persona_fisica.datos.apellido}}</li>
 {{/each}}
 </ul>
 
