@@ -13,6 +13,7 @@ Ember.MODEL_FACTORY_INJECTIONS = true;
 */
 
 Ember.Inflector.inflector.irregular('comision', 'comisiones');
+Ember.Inflector.inflector.irregular('legislador', 'legisladores');
 
 var App = Ember.Application.extend({
 	/**

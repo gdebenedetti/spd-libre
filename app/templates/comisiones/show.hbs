@@ -1,1 +1,14 @@
-<h2>{{model.datos.nombre}}</h2>
+<h2>{{model.comision.datos.nombre}}</h2>
+
+<ul>
+{{#each model.integrantes as |integrante|}}
+	<li>{{integrante.cargo}} {{integrante.fk_legislador.cargo}} {{integrante.fk_legislador.distrito}} {{integrante.fk_legislador.fk_persona_fisica.datos.nombre}}</li>
+{{/each}}
+</ul>
+
+<ul>
+{{#each model.proyectos as |proyecto|}}
+	<li>{{proyecto.codigo_exp}}</li>
+{{/each}}
+</ul>
+{{infinity-loader infinityModel=model}}
