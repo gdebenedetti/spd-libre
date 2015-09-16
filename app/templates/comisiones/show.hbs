@@ -6,10 +6,9 @@
 {{/each}}
 </ul>
 
-
 <ul>
 {{#each model.citaciones as |citacion|}}
-	<li>{{citacion.fecha}}  {{citacion.estado}} {{citacion.resumen}} {{citacion.observaciones}} ({{citacion.fk_lugar.nombre}} | {{citacion.fk_lugar.ubicacion}})</li>
+	<li>{{citacion.fecha}} {{citacion.estado}} {{citacion.resumen}} {{citacion.observaciones}} ({{citacion.fk_lugar.nombre}} | {{citacion.fk_lugar.ubicacion}})</li>
 {{/each}}
 </ul>
 
