@@ -1,4 +1,7 @@
 
+
+{{outlet}}
+
 <ul>
 {{#each model as |orden_del_dia|}}
   <li>{{orden_del_dia.numero}} {{#link-to 'ordenes-del-dia.show' orden_del_dia.id}}ver{{/link-to}}</li>
