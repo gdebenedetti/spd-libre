@@ -19,6 +19,10 @@ Router.map(function() {
     this.route('show', { path: ':comision_id' });
   });
 
+  this.resource('ordenes-del-dia', function() {
+    this.route('show', { path: ':ordenes_del_dia_id' });
+  });
+
 });
 
 export default Router;

@@ -7,6 +7,7 @@ export default DS.RESTAdapter.extend({
 	host: config.APP.host || '',
 
 	pathForType: function(type) {
+		console.log(type);
 		var dasherized = Ember.String.underscore(type);
 		return Ember.String.pluralize(dasherized);
 	}

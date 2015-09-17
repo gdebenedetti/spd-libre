@@ -21,5 +21,10 @@ export default function(){
 		this.reverse('fade',  {duration: 800, delay: 400, easing: [ 0.7,0,0.3,1 ]})
 	);
 
-	
+	this.transition(
+		this.fromRoute('index'),
+		this.toRoute('ordenes-del-dia.index'),
+		this.use('fade',  {duration: 800, delay: 400, easing: [ 0.7,0,0.3,1 ]}),
+		this.reverse('fade',  {duration: 800, delay: 400, easing: [ 0.7,0,0.3,1 ]})
+	);	
 };

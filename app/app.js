@@ -18,6 +18,8 @@ Ember.Inflector.inflector.irregular('citacion', 'citaciones');
 Ember.Inflector.inflector.irregular('lugar', 'lugares');
 Ember.Inflector.inflector.irregular('session', 'sessiones');
 Ember.Inflector.inflector.irregular('orador', 'oradores');
+Ember.Inflector.inflector.irregular('dictamen', 'dictamenes');
+Ember.Inflector.inflector.irregular('od', 'ordenes_del_dia');
 
 var App = Ember.Application.extend({
 	/**

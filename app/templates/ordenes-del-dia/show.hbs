@@ -1,0 +1,20 @@
+<h2>N° {{model.numero}} Periodo {{model.periodo}}</h2>
+
+
+
+<h3>Proyectos</h3>
+<ul>
+	{{#each model.proyectos as |proyecto|}}
+		<li>{{proyecto.codigo_exp}}</li>
+	{{/each}}
+</ul>
+
+
+<h3>Despacho</h3>
+{{model.despacho.texto_legado}}
+<h4>Dictamenes</h4>
+<ul>
+{{#each model.despacho.dictamenes as |dictamen|}}
+	<li>{{dictamen.accion}} {{dictamen.copete}}</li>
+{{/each}}
+</ul>
