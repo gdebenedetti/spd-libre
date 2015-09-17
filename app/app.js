@@ -16,6 +16,8 @@ Ember.Inflector.inflector.irregular('comision', 'comisiones');
 Ember.Inflector.inflector.irregular('legislador', 'legisladores');
 Ember.Inflector.inflector.irregular('citacion', 'citaciones');
 Ember.Inflector.inflector.irregular('lugar', 'lugares');
+Ember.Inflector.inflector.irregular('session', 'sessiones');
+Ember.Inflector.inflector.irregular('orador', 'oradores');
 
 var App = Ember.Application.extend({
 	/**

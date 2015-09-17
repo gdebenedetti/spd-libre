@@ -12,7 +12,7 @@ Router.map(function() {
   this.route("catchall", {path: '/*wildcard'});
 
   this.resource('proyectos', function() {
-    this.route('show', { path: ':proyectos_id' });
+    this.route('show', { path: ':proyecto_id' });
   });
 
   this.resource('comisiones', function() {

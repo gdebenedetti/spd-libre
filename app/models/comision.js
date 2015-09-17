@@ -12,7 +12,7 @@ export default DS.Model.extend({
 
 	datos: Ember.computed('comision_hist', function () {
 		var c = null;
-		if (this.get('comision_hist').length > 0) {
+		if (this.get('comision_hist') && this.get('comision_hist').length > 0) {
 			c = this.get('comision_hist')[0];
 		}
 		return c;
