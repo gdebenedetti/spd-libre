@@ -54,6 +54,10 @@ export default Ember.Mixin.create({
     return totalPages && currentPage ? currentPage < totalPages : false;
   }),
 
+  loading: Ember.computed('_loadingMore', function () {
+    return this.get('_loadingMore');
+  }),
+
   /**
     Use the infinityModel method in the place of `this.store.find('model')` to
     initialize the Infinity Model for your route.
@@ -125,6 +129,7 @@ export default Ember.Mixin.create({
 
       if (!this.get('_loadingMore') && this.get('_canLoadMore')) {
         this.set('_loadingMore', true);
+        this.set('controller.model.loading', true);
         query.page = nextPage;
 	      query.page_size = perPage;
         var promise = this.store.find(modelName, query);
@@ -132,6 +137,7 @@ export default Ember.Mixin.create({
           function(infinityModel) {
             list.pushObjects(infinityModel.get('content'));
             _this.set('_loadingMore', false);
+            _this.set('controller.model.loading', false);
             _this.set('_currentPage', nextPage);
             Ember.run.scheduleOnce('afterRender', _this, 'infinityModelUpdated', { lastPageLoaded: nextPage, totalPages: totalPages, newObjects: infinityModel });
             if (!_this.get('_canLoadMore')) {
@@ -141,6 +147,7 @@ export default Ember.Mixin.create({
           },
           function() {
             _this.set('_loadingMore', false);
+            _this.set('controller.model.loading', false);
             throw new Ember.Error("You must pass a Model Name to infinityModel");
           }
         );

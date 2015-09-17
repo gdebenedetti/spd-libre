@@ -1,7 +1,11 @@
 {{#if infinityModel.reachedInfinity}}
-  	
+  	<p>Se cargaron todos</p>
 {{else}}
+	{{#if infinityModel.loading}}
 	<div class="loading">
 		loading...
 	</div>
+	{{else}}
+		<p {{action 'loadMore'}}>Cargar mas</p>
+	{{/if}}
 {{/if}}
