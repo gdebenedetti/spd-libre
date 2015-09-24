@@ -7,6 +7,8 @@ export default Ember.Component.extend({
 		close: function () {
 			var _this = this;
 
+			_this.$().hide();
+			
 			$(_this.get('target')).addClass(_this.get('closeClass'));
 
 			Ember.run.later(function () {
