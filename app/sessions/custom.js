@@ -7,8 +7,16 @@ var CustomSession = SimpleAuthSession.extend({
     var _this = this;
     if (!Ember.isEmpty(userId)) {
   		jQuery.getJSON('oauth/info_user/', function(json) {
-  		  // set all of the JSON properties on the model
-  		  _this.set('user', json);
+          $.ajax({
+              type : "POST",
+              url : "app/user/access",
+              data : json,
+              success : function(data) {
+                data = JSON.parse(data);  
+  		          _this.set('user', json);
+                _this.set('user.comisiones', data.comisiones);
+              }
+          });
   		});
       return userId;
     }

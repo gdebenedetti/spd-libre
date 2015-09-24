@@ -1,10 +1,8 @@
 <div {{bind-attr class=":side-panel model:show"}}>
 	<article>
-		<div class="close-panel">
-			{{#link-to 'ordenes-del-dia.index'}}
-			{{fa-icon 'times'}}
-			{{/link-to}}
-		</div>
+
+		{{close-delay target=".side-panel" delay=700 closeClass="close" transitionTo='ordenes-del-dia.index'}}
+	
 		<div class="article-meta">
 			<span>Periodo {{model.periodo}}</span>
 		</div>

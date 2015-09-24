@@ -40,35 +40,16 @@ fullNodeProxy.prototype.web = function(req, res) {
                 },function(err,response,body){
             }).pipe(res);
         } else {
-            if (req.method=='POST') {
+            if (req.method === 'POST' || req.method === "PUT" || req.method === "DELETE") {
                 require('request').post({
                     uri:this.target+req.url,
                     headers: headers,
                     form:req.body
                     },function(err,response,body){
-                        console.log(err);
                 }).pipe(res);
-            } else {
-                if (req.method =="PUT") {
-                    require('request').put({
-                        uri:this.target+req.url,
-                        headers: headers,
-                        form:req.body
-                        },function(err,response,body){
-                    }).pipe(res);                    
-                } else {
-                    if (req.method =="DELETE") {
-                        require('request').del({
-                            uri:this.target+req.url,
-                            headers: headers,
-                            form:req.body
-                            },function(err,response,body){
-                        }).pipe(res);                    
-                    }                    
-                }
-            }
+            } 
         }
     }
 }
-
+            
 module.exports = new fullNodeProxy();
