@@ -1,8 +1,7 @@
-<div {{bind-attr class=":side-panel model:show"}}>
-	<article>
+{{close-delay target=".side-panel" delay=700 closeClass="close" transitionTo='ordenes-del-dia.index'}}
 
-		{{close-delay target=".side-panel" delay=700 closeClass="close" transitionTo='ordenes-del-dia.index'}}
-	
+{{#liquid-if model class="side-panel anim-article show"}}
+	<article>
 		<div class="article-meta">
 			<span>Periodo {{model.periodo}}</span>
 		</div>
@@ -30,4 +29,4 @@
 			</ul>
 		</div>
 	</article>
-</div>	
+{{/liquid-if}}

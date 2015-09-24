@@ -12,7 +12,7 @@
         @include transform(translateX(0));
     }
     to {
-        @include transform(translateX(500px));
+        @include transform(translateX(1000px));
     }
 }
  
@@ -24,7 +24,7 @@
     @include prefixer(backface-visibility, hidden, webkit moz spec);
 }
  
-.side-panel {
+.side-panel.close {
     @include animation-name(slideClosed);
     @include animation-duration(.2s);
     @include animation-timing-function(ease-in);
@@ -39,5 +39,6 @@
 .close-panel {
     position: fixed;
     right: 30px;
-    top: 20px;
+    top: 90px;
+    z-index: 5000;
 }
