@@ -1,7 +1,6 @@
+{{outlet}}
+
 <div class="container ordenes-del-dia">
-	<div class="offcanvas">
-		{{outlet}}
-	</div>
 	<div class="heading">
 		<h1>Ordenes del día</h1>
 		<div class="-actions">
@@ -10,12 +9,12 @@
 			</div>
 		</div>
 	</div>
-	<section>
+	<section class="scroll">
 		<div class="-list">
 		{{#each model as |orden_del_dia|}}
 		  {{#if orden_del_dia.numero}}
 			  <div class="-item">
-				  {{#link-to 'ordenes-del-dia.show' orden_del_dia.id}}{{orden_del_dia.numero}}{{/link-to}}
+				  {{#link-to 'ordenes-del-dia.show' orden_del_dia.id}} N°{{orden_del_dia.numero}}{{/link-to}}
 			  </div>
 		  {{else}}
 			   <div class="-item -fulfilled">

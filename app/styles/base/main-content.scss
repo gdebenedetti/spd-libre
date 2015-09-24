@@ -27,6 +27,7 @@
 
 	section {
 		@include span-columns(12);
+	    background: #fff;
 
 		.-list {
 			@include span-columns(12);
@@ -34,9 +35,13 @@
 
 		.-item {
 			@include span-columns(12);
-			padding: 15px 0;
+			padding: 15px;
 			margin: 2px 0;
 		    border-bottom: 1px solid #ddd;
+		}
+
+		a {
+			color: #3498db;
 		}
 	}
 
