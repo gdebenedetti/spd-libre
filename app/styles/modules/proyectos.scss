@@ -1,0 +1,13 @@
+.proyecto-container {
+	
+	@include outer-container(100%);
+
+
+	.proyecto-item {
+		float: left;
+		width: 100%;
+		padding: 10px 0;
+		border-bottom: 1px solid #ddd;
+	}
+
+}

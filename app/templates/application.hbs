@@ -36,6 +36,11 @@
 </nav>
 
 <header>
+	<div class="action-bar">
+		<a {{action 'smartGoBack'}} class="smart-search">
+			{{fa-icon 'angle-left'}} 
+		</a>
+	</div>
 	<div class="user-login">
 		{{#if session.isAuthenticated}}
 		  	{{session.user.nombre}} <a {{ action 'invalidateSession' }}>Salir</a>

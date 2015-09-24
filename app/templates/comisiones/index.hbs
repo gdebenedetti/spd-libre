@@ -1,5 +1,6 @@
+<h1>Comisiones</h1>
 
-<ul>
+<ul class="simple-list">
 {{#each model as |comision|}}
   <li>{{comision.datos.nombre}} {{#link-to 'comisiones.show' comision.id}}ver{{/link-to}}</li>
 {{/each}}

@@ -1,0 +1,24 @@
+.-fulfilled {
+	@include display(flex);
+	@include justify-content(space-between);
+
+	span {
+		display: inline-block;
+		background: $light-gray;
+	   
+	    height: 20px;
+	}
+
+	.item-1 {
+		 width: 60px;
+	}
+
+	.item-2 {
+ 		width: 60px;
+	}
+
+	.item-3 {
+ 		width: 180px;
+
+	}
+}

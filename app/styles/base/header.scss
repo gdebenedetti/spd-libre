@@ -1,11 +1,12 @@
 header {
 	height: 60px;
 	padding: 10px;
-	background: lighten($main-blue, 40%);
+	background: #f1f1f1;
     text-align: right;
+	@include display(flex);
+	@include justify-content(space-between);
 
     .user-login {
-		float: right;
 		padding: 12px;
 
 		a {

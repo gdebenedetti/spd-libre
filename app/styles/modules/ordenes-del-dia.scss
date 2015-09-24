@@ -1,0 +1,29 @@
+.ordenes-del-dia {
+	
+	article {
+		
+
+		.article-meta {
+
+		}
+
+		.article-title {
+			margin: 15px 0;
+			text-align: center;
+			text-transform: uppercase;
+
+			h2 {
+				margin: 15px 0;
+			}
+		}
+
+		.article-content {
+			@include span-columns(8);
+			@include shift(2);
+		}
+
+		.proyectos-container {
+			text-align: center;
+		}
+	}
+}

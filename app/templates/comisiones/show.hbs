@@ -1,20 +1,34 @@
-<h2>{{model.comision.datos.nombre}}</h2>
+<h2>Comisión de {{model.comision.datos.nombre}}</h2>
 
 <ul>
+<h3>Integrantes</h3>
 {{#each model.comision.legisladores as |integrante|}}
-	<li>{{integrante.cargo}} {{integrante.fk_legislador.cargo}} {{integrante.fk_legislador.distrito}} {{integrante.fk_legislador.fk_persona_fisica.datos.nombre}} {{integrante.fk_legislador.fk_persona_fisica.datos.apellido}}</li>
+	{{#if integrante.fk_legislador.fk_persona_fisica.datos.nombre}}
+		<li>{{integrante.cargo}} {{integrante.fk_legislador.cargo}} {{integrante.fk_legislador.distrito}} {{integrante.fk_legislador.fk_persona_fisica.datos.nombre}} {{integrante.fk_legislador.fk_persona_fisica.datos.apellido}}</li>
+	{{else}}
+		<li>dummmmmmy</li>
+	{{/if}}
 {{/each}}
 </ul>
 
 <ul>
+<h3>Citaciones</h3>
 {{#each model.citaciones as |citacion|}}
-	<li>{{citacion.fecha}} {{citacion.estado}} {{citacion.resumen}} {{citacion.observaciones}} ({{citacion.fk_lugar.nombre}} | {{citacion.fk_lugar.ubicacion}})</li>
+	{{#if citacion.resumen}}
+		<li>
+		{{time-format citacion.fecha '[El] Do [de] MMMM [de] dddd [a las] h:mm'}}<br> {{citacion.estado}} <br> {{citacion.resumen}} <br> {{citacion.observaciones}} <br> <small>({{citacion.fk_lugar.nombre}} | {{citacion.fk_lugar.ubicacion}})</small></li>
+	{{else}}
+		<li>dummmmmmy</li>
+	{{/if}}
 {{/each}}
 </ul>
 
 <ul>
+<h3>Proyectos</h3>
 {{#each model.proyectos as |proyecto|}}
-	<li>{{proyecto.codigo_exp}}</li>
+	<li>
+		{{proyecto.codigo_exp}} {{#link-to 'proyectos.show' proyecto}}ver{{/link-to}}
+	</li>
 {{/each}}
 </ul>
 {{infinity-loader infinityModel=model}}

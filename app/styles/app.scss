@@ -1,3 +1,13 @@
 @import "plugins/plugins";
 @import "base/base";
 @import "modules/modules";
+
+.side-panel {
+    position: fixed;
+    top: 60px;
+    width: 80%;
+    right: 0;
+    background: #fff;
+    padding: 70px 20px 20px 20px;
+    bottom: 0;
+}

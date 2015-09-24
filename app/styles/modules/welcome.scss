@@ -1,6 +1,14 @@
+$mobile: new-breakpoint(max-width 650px 6);
+$tablet: new-breakpoint(max-width 768px 12);
+$desktop: new-breakpoint(max-width 993px 12);
+
 .welcome {
 	width: 100%;
 	text-align: center;
 	height: 500px;
 	padding: 140px;
+
+	@include media($mobile) {
+		padding: 40px;
+	}
 }

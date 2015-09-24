@@ -1,20 +1,35 @@
-<h2>N° {{model.numero}} Periodo {{model.periodo}}</h2>
+<div {{bind-attr class=":side-panel model:show"}}>
+	<article>
+		<div class="close-panel">
+			{{#link-to 'ordenes-del-dia.index'}}
+			{{fa-icon 'times'}}
+			{{/link-to}}
+		</div>
+		<div class="article-meta">
+			<span>Periodo {{model.periodo}}</span>
+		</div>
+		
+		<div class="article-title">
+			<time>{{model.anio}} </time>
+			<h2>Orden del día N° {{model.numero}} </h2>
+		</div>
 
-
-
-<h3>Proyectos</h3>
-<ul>
-	{{#each model.proyectos as |proyecto|}}
-		<li>{{proyecto.codigo_exp}}</li>
-	{{/each}}
-</ul>
-
-
-<h3>Despacho</h3>
-{{model.despacho.texto_legado}}
-<h4>Dictamenes</h4>
-<ul>
-{{#each model.despacho.dictamenes as |dictamen|}}
-	<li>{{dictamen.accion}} {{dictamen.copete}}</li>
-{{/each}}
-</ul>
+		<div class="article-content">
+			<div class="proyectos-container">
+			<h6>Proyectos a tratar: </h6>
+			{{#each model.proyectos as |proyecto|}}
+				<div class="proyectos-item">{{proyecto.codigo_exp}}</div>
+			{{/each}}
+			</div>
+			
+			<h3>Despacho</h3>
+			{{model.despacho.texto_legado}}
+			<h4>Dictamenes</h4>
+			<ul>
+			{{#each model.despacho.dictamenes as |dictamen|}}
+				<li>{{dictamen.accion}} {{dictamen.copete}}</li>
+			{{/each}}
+			</ul>
+		</div>
+	</article>
+</div>	

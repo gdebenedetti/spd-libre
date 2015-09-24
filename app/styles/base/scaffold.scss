@@ -1,3 +1,8 @@
+$mobile: new-breakpoint(max-width 650px 6);
+$tablet: new-breakpoint(max-width 768px 12);
+$desktop: new-breakpoint(max-width 993px 12);
+
+
 $layer: (
   offcanvas: 1,
   header: 100,
@@ -6,6 +11,10 @@ $layer: (
   tooltip: 15
 );
 
+body {
+	background: #f9f9f9;
+}
+
 nav {
 	position: fixed;
 	z-index: layer(modal) + 1;
@@ -13,25 +22,52 @@ nav {
 	top: 0;
 	left: 0;
 	bottom: 0;
+	-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	-webkit-transition: all 0.6s;
+	transition: all 0.6s;
+
+
+
+	@include media($mobile) {
+		-webkit-transform: translate3d(-150px,0,0);
+		transform: translate3d(-150px,0,0);
+	}
 }
 
 .main-content {
 	position: relative;
-	padding: 15px;
 	-webkit-transition: all 0.4s;
 	transition: all 0.4s;
 	-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
 	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-	padding-top: 70px;
+	padding-top: 60px;
     margin-right: 0;
     margin-left: 150px;
+
+    @include media($mobile) {
+	  margin-left: 0;
+	}
 }
 
 header {
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+	margin-left: 150px;
 	position: fixed;
-	left: 150px;
+	left: 0;
 	right: 0;
 	top: 0;
 	z-index: layer(header);
+
+	@include media($mobile) {
+		margin-left: 0;
+	}
 }
 
+
+.side-panel {
+	z-index: layer(modal) - 1;
+}
