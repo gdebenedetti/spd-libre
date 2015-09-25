@@ -43,6 +43,7 @@
     "ember-document-title": "1.1.8",
     "ember-export-application-global": "^1.0.2",
     "ember-hold-button": "0.3.2",
+    "ember-in-viewport": "2.0.0",
     "ember-smart-go-back": "1.0.0",
     "glob": "^5.0.2",
     "liquid-fire": "0.19.3",

@@ -54,9 +54,6 @@ export default Ember.Mixin.create({
     return totalPages && currentPage ? currentPage < totalPages : false;
   }),
 
-  loading: Ember.computed('_loadingMore', function () {
-    return this.get('_loadingMore');
-  }),
 
   /**
     Use the infinityModel method in the place of `this.store.find('model')` to

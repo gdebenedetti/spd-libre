@@ -1,0 +1,29 @@
+
+{{outlet}}
+
+<div class="container proyectos">
+	<div class="heading">
+		<h1>Proyectos</h1>
+		<div class="-actions">
+			<div class="sort">
+				{{fa-icon 'filter'}}
+			</div>
+		</div>
+	</div>
+	<section class="scroll">
+		<div class="-list">
+			<div class="proyecto-container">
+				{{#each model as |proyecto|}}
+				<div class="proyecto-item">
+					{{proyecto.tipo}} {{proyecto.tipo_camara}} {{proyecto.codigo_exp}}
+
+					Periodo {{proyecto.periodo}} <br>
+					<time>{{time-format proyecto.fecha '[El] Do [de] MMMM [de] dddd [a las] h:mm'}}</time>
+					{{#link-to 'proyectos.show' proyecto.id}}ver{{/link-to}}
+				</div>
+				{{/each}}
+			</div>
+		</div>
+		{{infinity-loader infinityModel=model targetScroll=".scroll"}}
+	</section>
+</div>

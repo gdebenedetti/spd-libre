@@ -12,6 +12,7 @@ export default Ember.Component.extend({
   loadedText: 'Infinite Model Entirely Loaded.',
   destroyOnInfinity: false,
   developmentMode: false,
+  targetScroll: '',
 
   actions: {
     loadMore: function () {
@@ -31,22 +32,24 @@ export default Ember.Component.extend({
 
   _bindScroll: function() {
     var _this = this;
-      Ember.$(document).on("touchmove.scrollable", function() {
+      Ember.$(this.get('targetScroll')).on("touchmove.scrollable", function() {
         Ember.run.debounce(_this, _this._checkIfInView, _this.get('scrollDebounce'));
       });
-      Ember.$(window).on("scroll.scrollable", function() {
+      Ember.$(this.get('targetScroll')).on("scroll.scrollable", function() {
         Ember.run.debounce(_this, _this._checkIfInView, _this.get('scrollDebounce'));
       });      
   },
 
   _unbindScroll: function() {
-    Ember.$(document).off("touchmove.scrollable");
-    Ember.$(window).off("scroll.scrollable");
+    Ember.$(this.get('targetScroll')).off("touchmove.scrollable");
+    Ember.$(this.get('targetScroll')).off("scroll.scrollable");
   },
 
   _checkIfInView: function() {
     var selfOffset   = this.$().offset().top;
-    var windowBottom = Ember.$(window).height() + Ember.$(window).scrollTop();
+    var windowBottom = Ember.$(this.get('targetScroll')).height() + this.$().height() * 3;
+    console.log(selfOffset);
+    console.log(windowBottom);
     var inView = selfOffset < windowBottom ? true : false;
     if (inView && !this.get('developmentMode')) {
       this.sendAction('loadMoreAction');

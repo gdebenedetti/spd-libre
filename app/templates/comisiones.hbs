@@ -1,0 +1,25 @@
+
+{{outlet}}
+
+<div class="container ordenes-del-dia">
+	<div class="heading">
+		<h1>Comisiones</h1>
+		<div class="-actions">
+			<div class="sort">
+				{{fa-icon 'filter'}}
+			</div>
+		</div>
+	</div>
+	<section class="scroll">
+		<div class="-list">
+			<ul>
+			{{#each model as |comision|}}
+			  <li>{{comision.datos.nombre}} {{#link-to 'comisiones.show' comision.id}}ver{{/link-to}}</li>
+			{{/each}}
+			</ul>
+		</div>
+		{{infinity-loader infinityModel=model targetScroll=".scroll"}}
+	</section>
+</div>
+
+

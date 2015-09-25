@@ -51,5 +51,5 @@ fullNodeProxy.prototype.web = function(req, res) {
         }
     }
 }
-            
+
 module.exports = new fullNodeProxy();
