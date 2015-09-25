@@ -43,7 +43,7 @@
 	</div>
 	<div class="user-login">
 		{{#if session.isAuthenticated}}
-		  	{{session.user.nombre}} <a {{ action 'invalidateSession' }}>Salir</a>
+		  	{{session.user.nombre}} ({{session.user.diputado}}) <a {{ action 'invalidateSession' }}>Salir</a>
 		{{else}}
 	  		{{#link-to 'login'}}Ingresar{{/link-to}}
 		{{/if}}

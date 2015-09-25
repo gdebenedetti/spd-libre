@@ -12,9 +12,15 @@ var CustomSession = SimpleAuthSession.extend({
               url : "app/user/access",
               data : json,
               success : function(data) {
-                data = JSON.parse(data);  
-  		          _this.set('user', json);
-                _this.set('user.comisiones', data.comisiones);
+                data = JSON.parse(data);
+                jQuery.getJSON('app/firmantesarha-get-by-user/' + json.cuil, function(firmantes) {
+    		          _this.set('user', json);
+                  _this.set('user.comisiones', data.comisiones);
+                  if (firmantes[0]) {
+                    var diputado = firmantes[0].nombre.split(", ");
+                    _this.set('user.diputado', diputado[1] + " " + diputado[0]);
+                  }
+                });
               }
           });
   		});
