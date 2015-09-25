@@ -10,7 +10,7 @@ export default Ember.Component.extend({
   loadMoreAction: 'infinityLoad',
   loadingText: 'Loading Infinite Model...',
   loadedText: 'Infinite Model Entirely Loaded.',
-  destroyOnInfinity: false,
+  destroyOnInfinity: true,
   developmentMode: false,
   targetScroll: '',
 
@@ -21,8 +21,13 @@ export default Ember.Component.extend({
   },
 
   didInsertElement: function() {
+    var _this = this;
+    
     this.set('guid', Ember.guidFor(this));
-    this._bindScroll();
+
+    Ember.run.later(function () {
+      _this._bindScroll();
+    });
     this._checkIfInView();
   },
 
@@ -31,7 +36,7 @@ export default Ember.Component.extend({
   },
 
   _bindScroll: function() {
-    var _this = this;
+      var _this = this;
       Ember.$(this.get('targetScroll')).on("touchmove.scrollable", function() {
         Ember.run.debounce(_this, _this._checkIfInView, _this.get('scrollDebounce'));
       });
@@ -48,8 +53,6 @@ export default Ember.Component.extend({
   _checkIfInView: function() {
     var selfOffset   = this.$().offset().top;
     var windowBottom = Ember.$(this.get('targetScroll')).height() + this.$().height() * 3;
-    console.log(selfOffset);
-    console.log(windowBottom);
     var inView = selfOffset < windowBottom ? true : false;
     if (inView && !this.get('developmentMode')) {
       this.sendAction('loadMoreAction');
