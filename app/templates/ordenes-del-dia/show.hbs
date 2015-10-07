@@ -20,8 +20,8 @@
 			</div>
 			
 			<h3>Despacho</h3>
-			{{model.despacho.texto_legado}}
-			<h4>Dictamenes</h4>
+			<p>{{model.despacho.texto_legado}}</p>
+			<h3>Dictamenes</h3>
 			<ul>
 			{{#each model.despacho.dictamenes as |dictamen|}}
 				<li>{{dictamen.accion}} {{dictamen.copete}}</li>

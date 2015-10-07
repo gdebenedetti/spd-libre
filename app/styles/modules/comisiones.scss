@@ -1,7 +1,116 @@
-.comisiones-container {
-	
-	.comisiones-item {
-		
-	}
+.side-panel {
+	article {
+	    padding: 60px 20px;
 
+		h2 {
+			text-align: center;
+			padding: 20px;
+		}
+	}
+}
+
+.diputados-container {
+	color: #666;
+
+	.diputados-item {
+		margin: 10px;
+		text-align: center;
+		border-bottom: 1px solid #ddd;
+		padding: 15px 0 10px 0;
+
+		small {
+				text-transform: uppercase;
+		}
+
+		h5 {
+			
+		}
+
+		.description {
+			text-transform: uppercase;
+		}
+	
+		&.presidente {
+
+			small {
+			
+			}
+
+			h5 {
+
+			}
+
+			.description {
+
+			}
+		}
+
+		&.vicepresidente {
+
+			small {
+			
+			}
+
+			h5 {
+
+			}
+
+			.description {
+
+			}
+		}
+
+		&.secretario {
+			width: 50%;
+			float: left;
+			margin: 0;
+
+			small {
+			
+			}
+
+			h5 {
+
+			}
+
+			.description {
+
+			}
+		}
+
+		&.vocal {
+		    width: 33.33333333333333333333333%;
+		    float: left;
+		    margin: 0;
+		    min-height: 120px;
+
+			small {
+			
+			}
+
+			h5 {
+				font-size: 16px;
+			}
+
+			.description {
+				font-size: 14px;
+				font-weight: 600;
+			}
+		}
+	}
+}
+
+.citacion-container {
+	.citacion-item {
+		border-bottom: 1px solid #ddd;
+		padding: 15px;
+	}
+}
+
+.proyectos-container {
+	.proyectos-item {
+		display: block;
+		border-bottom: 1px solid #ddd;
+		padding: 15px;
+	}
 }

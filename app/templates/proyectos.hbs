@@ -1,7 +1,7 @@
 
 {{outlet}}
 
-<div class="container ordenes-del-dia">
+<div class="container proyectos">
 	<div class="heading">
 		<h1>Proyectos</h1>
 		<div class="-actions">
@@ -14,7 +14,7 @@
 		<div class="-list">
 			<div class="proyecto-container">
 				{{#each model as |proyecto|}}
-				<div class="proyecto-item">
+				<div class="proyecto-item -item">
 					{{proyecto.tipo}} {{proyecto.tipo_camara}} {{proyecto.codigo_exp}}
 
 					Periodo {{proyecto.periodo}} <br>

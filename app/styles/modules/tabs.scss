@@ -1,0 +1,23 @@
+.ivy-tabs {
+	
+}
+
+.ivy-tab-list {
+	margin: 0;
+	text-align: center;
+}
+
+.ivy-tab {
+	display: inline-block;
+	margin: 10px 35px;
+	border-bottom: 4px solid transparent;
+	cursor: pointer;
+
+	&.active {
+		border-bottom: 4px solid $main-blue;
+	}
+}
+
+.ivy-tab-panel {
+
+}
