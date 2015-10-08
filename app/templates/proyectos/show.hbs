@@ -2,32 +2,34 @@
 
 {{#liquid-if model class="side-panel anim-article show"}}
 <article>
-	<h2>{{model.tipo_proy}} {{model.codigo_exp}}</h2>
+	{{#perfect-scroll wheelSpeed=2}}
+		<h2>{{model.tipo_proy}} {{model.codigo_exp}}</h2>
 
-	<p>
-		<small>Camara iniciadora: {{model.tipo_camara}}</small>
-		<small>Periodo: {{model.periodo}}</small>
-		<small>Fecha: {{model.fecha}}</small>
-	</p>
+		<p>
+			<small>Camara iniciadora: {{model.tipo_camara}}</small>
+			<small>Periodo: {{model.periodo}}</small>
+			<small>Fecha: {{model.fecha}}</small>
+		</p>
 
-	<h3>Titulo</h3>
-	<p>{{model.titulo}}</p>
+		<h3>Titulo</h3>
+		<p>{{model.titulo}}</p>
 
-	<h3>Sumario</h3>
-	<p class="sumario">{{model.sumario}}</p>
+		<h3>Sumario</h3>
+		<p class="sumario">{{model.sumario}}</p>
 
-	<h3>Firmantes</h3>
-	<ul>
-	{{#each model.firmantes as |firmante|}}
-		<li>{{firmante.nombre_leg_func}} {{firmante.distrito}} {{firmante.nombre_del_bloque}} </li>
-	{{/each}}
-	</ul>
+		<h3>Firmantes</h3>
+		<ul>
+		{{#each model.firmantes as |firmante|}}
+			<li>{{firmante.nombre_leg_func}} {{firmante.distrito}} {{firmante.nombre_del_bloque}} </li>
+		{{/each}}
+		</ul>
 
-	<h3>Giros</h3>
-	<ul>
-	{{#each model.giros as |giro|}}
-		<li>{{giro.fk_comision.datos.nombre}}</li>
-	{{/each}}
-	</ul>
+		<h3>Giros</h3>
+		<ul>
+		{{#each model.giros as |giro|}}
+			<li>{{giro.fk_comision.datos.nombre}}</li>
+		{{/each}}
+		</ul>
+	{{/perfect-scroll}}
 </article>
 {{/liquid-if}}

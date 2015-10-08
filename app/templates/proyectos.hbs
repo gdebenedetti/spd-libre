@@ -15,11 +15,10 @@
 			<div class="proyecto-container">
 				{{#each model as |proyecto|}}
 				<div class="proyecto-item -item">
-					{{proyecto.tipo}} {{proyecto.tipo_camara}} {{proyecto.codigo_exp}}
-
+					{{#link-to 'proyectos.show' proyecto.id}}{{proyecto.codigo_exp}}{{/link-to}}
+					{{proyecto.tipo}} {{proyecto.tipo_camara}} 
 					Periodo {{proyecto.periodo}} <br>
 					<time>{{time-format proyecto.fecha '[El] Do [de] MMMM [de] dddd [a las] h:mm'}}</time>
-					{{#link-to 'proyectos.show' proyecto.id}}ver{{/link-to}}
 				</div>
 				{{/each}}
 			</div>

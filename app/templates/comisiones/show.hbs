@@ -38,7 +38,7 @@
 		  	<div class="proyectos-container">
 				{{#each model.proyectos as |proyecto|}}
 					<div class="proyectos-item">
-						{{proyecto.codigo_exp}} {{#link-to 'proyectos.show' proyecto}}ver{{/link-to}}
+						{{#link-to 'proyectos.show' proyecto}}{{proyecto.codigo_exp}} {{/link-to}}
 					</div>
 				{{/each}}
 				{{infinity-loader infinityModel=model targetScroll="body"}}

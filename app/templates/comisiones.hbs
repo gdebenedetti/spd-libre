@@ -13,7 +13,7 @@
 	<section class="scroll">
 		<div class="-list">
 			{{#each model as |comision|}}
-				<div class="-item">{{comision.datos.nombre}} {{#link-to 'comisiones.show' comision.id}}ver{{/link-to}}</div>
+				<div class="-item">{{#link-to 'comisiones.show' comision.id}} {{comision.datos.nombre}} {{/link-to}}</div>
 			{{/each}}
 		</div>
 		{{infinity-loader infinityModel=model targetScroll=".scroll"}}
