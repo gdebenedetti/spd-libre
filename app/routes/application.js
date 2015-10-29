@@ -7,12 +7,16 @@ export default Ember.Route.extend(ApplicationRouteMixin, GoBackMixin, {
  model: function () {
  	var _this = this;
 	var promise = new Promise(function(resolve, reject) {
-		var interval = setInterval(function () {
-			if (_this.get('session.user')) {
-				resolve(_this.get('session.user'));
-				clearInterval(interval);
-			}
-		}, 500);
+		if (_this.get('session.isAuthenticated')) {
+			var interval = setInterval(function () {
+				if (_this.get('session.user')) {
+					resolve(_this.get('session.user'));
+					clearInterval(interval);
+				}
+			}, 500);
+		} else {
+			resolve(null);
+		}
 	}); 	
  	return promise;
  },

@@ -18,7 +18,7 @@
 		<ul>
 		<h3>Citaciones</h3>
 		{{#each model.citaciones as |citacion|}}
-			{{#if citacion.resumen}}
+			{{#if citacion.fk_lugar.nombre}}
 				<li>
 				{{time-format citacion.fecha '[El] Do [de] MMMM [de] dddd [a las] h:mm'}}<br> {{citacion.estado}} <br> {{citacion.resumen}} <br> {{citacion.observaciones}} <br> <small>({{citacion.fk_lugar.nombre}} | {{citacion.fk_lugar.ubicacion}})</small></li>
 			{{else}}
