@@ -2,39 +2,73 @@
 
 {{#liquid-if model class="side-panel anim-article show"}}
 	<article>
-		<h2>Comisión de {{model.comision.datos.nombre}}</h2>
 
-		<ul>
-		<h3>Integrantes</h3>
-		{{#each model.comision.legisladores as |integrante|}}
-			{{#if integrante.fk_legislador.fk_persona_fisica.datos.nombre}}
-				<li>{{integrante.cargo}} {{integrante.fk_legislador.cargo}} {{integrante.fk_legislador.distrito}} {{integrante.fk_legislador.fk_persona_fisica.datos.nombre}} {{integrante.fk_legislador.fk_persona_fisica.datos.apellido}}</li>
-			{{else}}
-				<li>dummmmmmy</li>
-			{{/if}}
-		{{/each}}
-		</ul>
+		{{#perfect-scroll wheelSpeed=2}}
+		
+		<h2>
+			<small>Comisión de </small><br> 
+			{{model.comision.datos.nombre}}
+		</h2>
 
-		<ul>
-		<h3>Citaciones</h3>
-		{{#each model.citaciones as |citacion|}}
-			{{#if citacion.fk_lugar.nombre}}
-				<li>
-				{{time-format citacion.fecha '[El] Do [de] MMMM [de] dddd [a las] h:mm'}}<br> {{citacion.estado}} <br> {{citacion.resumen}} <br> {{citacion.observaciones}} <br> <small>({{citacion.fk_lugar.nombre}} | {{citacion.fk_lugar.ubicacion}})</small></li>
-			{{else}}
-				<li>dummmmmmy</li>
-			{{/if}}
-		{{/each}}
-		</ul>
+		{{#ivy-tabs}}
+		  {{#ivy-tab-list}}
+		    {{#ivy-tab}}Citaciones{{/ivy-tab}}
+		    {{#ivy-tab}}Proyectos{{/ivy-tab}}
+		    {{#ivy-tab}}Integrantes{{/ivy-tab}}
+		  {{/ivy-tab-list}}
+		 
 
-		<h3>Proyectos</h3>
-		<ul>
-		{{#each model.proyectos as |proyecto|}}
-			<li>
-				{{proyecto.codigo_exp}} {{#link-to 'proyectos.show' proyecto}}ver{{/link-to}}
-			</li>
-		{{/each}}
-		</ul>
-		{{infinity-loader infinityModel=model targetScroll="body"}}
+		 {{#ivy-tab-panel}}
+		  	<div class="citacion-container">
+			{{#each model.citaciones as |citacion|}}
+				{{#if citacion.resumen}}
+					<div class="citacion-item">
+					{{time-format citacion.fecha '[El] Do [de] MMMM [de] dddd [a las] h:mm'}}<br> {{citacion.estado}} <br> {{citacion.resumen}} <br> {{citacion.observaciones}} <br> <small>({{citacion.fk_lugar.nombre}} | {{citacion.fk_lugar.ubicacion}})</small>
+					</div>
+				{{else}}
+					<div class="dummy-item">
+						...
+					</div>
+				{{/if}}
+			{{/each}}
+			</div>
+		  {{/ivy-tab-panel}}
+		 
+		  {{#ivy-tab-panel}}
+		  	<div class="proyectos-container">
+				{{#each model.proyectos as |proyecto|}}
+					<div class="proyectos-item">
+						{{#link-to 'proyectos.show' proyecto}}{{proyecto.codigo_exp}} {{/link-to}}
+					</div>
+				{{/each}}
+				{{infinity-loader infinityModel=model targetScroll="body"}}
+			</div>
+		  {{/ivy-tab-panel}}
+
+		   {{#ivy-tab-panel}}
+			<div class="diputados-container">
+				{{#each model.comision.legisladores as |integrante|}}
+					{{#if integrante.fk_legislador.fk_persona_fisica.datos.nombre}}
+						<div {{bind-attr class=":diputados-item integrante.cargo"}}>
+							<small>{{integrante.fk_legislador.cargo}}</small>
+							<h5> {{integrante.fk_legislador.fk_persona_fisica.datos.nombre}} {{integrante.fk_legislador.fk_persona_fisica.datos.apellido}}</h5>
+							<div class="description"><i>{{integrante.cargo}}</i> <br>{{integrante.fk_legislador.distrito}} </div>
+						</div>
+					{{else}}
+						<div class="dummy-item">
+							...
+						</div>
+					{{/if}}
+				{{/each}}
+			</div>
+		  {{/ivy-tab-panel}}
+
+		{{/ivy-tabs}}
+
+
+
+		{{/perfect-scroll}}
+
 	</article>
+
 {{/liquid-if}}

@@ -1,7 +1,7 @@
 
 {{outlet}}
 
-<div class="container ordenes-del-dia">
+<div class="container proyectos">
 	<div class="heading">
 		<h1>Proyectos</h1>
 		<div class="-actions">
@@ -14,12 +14,11 @@
 		<div class="-list">
 			<div class="proyecto-container">
 				{{#each model as |proyecto|}}
-				<div class="proyecto-item">
-					{{proyecto.tipo}} {{proyecto.tipo_camara}} {{proyecto.codigo_exp}}
-
+				<div class="proyecto-item -item">
+					{{#link-to 'proyectos.show' proyecto.id}}{{proyecto.codigo_exp}}{{/link-to}}
+					{{proyecto.tipo}} {{proyecto.tipo_camara}} 
 					Periodo {{proyecto.periodo}} <br>
 					<time>{{time-format proyecto.fecha '[El] Do [de] MMMM [de] dddd [a las] h:mm'}}</time>
-					{{#link-to 'proyectos.show' proyecto.id}}ver{{/link-to}}
 				</div>
 				{{/each}}
 			</div>

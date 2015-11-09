@@ -1,29 +1,40 @@
-.ordenes-del-dia {
-	
-	article {
-		
+article {
 
-		.article-meta {
+	.article-meta {
 
-		}
+	}
 
-		.article-title {
+	.article-title {
+		margin: 15px 0;
+		text-align: center;
+		text-transform: uppercase;
+
+		h2 {
 			margin: 15px 0;
-			text-align: center;
-			text-transform: uppercase;
-
-			h2 {
-				margin: 15px 0;
-			}
 		}
 
-		.article-content {
-			@include span-columns(8);
-			@include shift(2);
+		time {
+			font-size: 22px
 		}
 
-		.proyectos-container {
-			text-align: center;
-		}
+
+	}
+
+	.article-content {
+		@include span-columns(8);
+		@include shift(2);
+	}
+
+	h3 {
+		margin: 5px 0 10px 0;
+	}
+
+	p {
+		font-size: 16px;
+		line-height: 20px;
+	}
+
+	.proyectos-container {
+		text-align: center;
 	}
 }

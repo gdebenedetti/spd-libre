@@ -6,10 +6,17 @@
 	@include outer-container(100%);
     padding: 25px;
 
+    @include media($mobile) {
+		padding: 25px 0;
+	}
+
 	.heading {
 		@include display(flex);
 		@include justify-content(space-between);
 
+		 @include media($mobile) {
+			padding: 0 15px;
+		}
 
 		h1 {
 
@@ -28,9 +35,11 @@
 	section {
 		@include span-columns(12);
 	    background: #fff;
+		-webkit-overflow-scrolling: touch;
 
 		.-list {
 			@include span-columns(12);
+
 		}
 
 		.-item {

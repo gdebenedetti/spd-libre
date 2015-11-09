@@ -36,6 +36,27 @@ export default function(){
 	);
 
 	this.transition(
+		this.fromRoute('comisiones'),
+		this.toRoute('proyectos'),
+		this.use('fade',  {duration: 600, delay: 0, easing: [ 0.7,0,0.3,1 ]}),
+		this.reverse('fade',  {duration: 600, delay: 0, easing: [ 0.7,0,0.3,1 ]})
+	);
+
+	this.transition(
+		this.fromRoute('comisiones'),
+		this.toRoute('ordenes-del-dia'),
+		this.use('fade',  {duration: 600, delay: 0, easing: [ 0.7,0,0.3,1 ]}),
+		this.reverse('fade',  {duration: 600, delay: 0, easing: [ 0.7,0,0.3,1 ]})
+	);
+
+	this.transition(
+		this.fromRoute('ordenes-del-dia'),
+		this.toRoute('proyectos'),
+		this.use('fade',  {duration: 600, delay: 0, easing: [ 0.7,0,0.3,1 ]}),
+		this.reverse('fade',  {duration: 600, delay: 0, easing: [ 0.7,0,0.3,1 ]})
+	);
+
+	this.transition(
 		this.fromRoute('proyectos.show'),
 		this.toRoute('comisiones.show'),
 		this.use('toLeft',  {duration: 800, delay: 400, easing: [ 0.7,0,0.3,1 ]}),
