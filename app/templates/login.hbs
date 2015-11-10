@@ -1,18 +1,28 @@
-<div>
-  <h1>Login</h1>
-</div>
+
+<div class="login">
+  
+
+  <div class="logo">
+    <img src="assets/images/logo-hcdn.png">
+  </div>
+
 <form {{action 'authenticate' on='submit'}}>
-  <div>
-    <label for="identification">Login</label>
-    {{input id='identification' placeholder='Enter Login' value=identification}}
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  </div>
-  <button type="submit">Login</button>
+  <fieldset>
+    <label for="identification">Cuil</label>
+    {{input id='identification' placeholder='...' value=identification}}
+  </fieldset>
+  <fieldset>
+    <label for="password">Contraseña</label>
+    {{input id='password' placeholder='...' type='password' value=password}}
+  </fieldset>
+  <fieldset>
+    <button class="btn -simple" type="submit"> {{fa-icon 'check'}} Ingresar</button>
+  </fieldset>
   {{#if errorMessage}}
     {{errorMessage}}
     {{errorDescription}}
   {{/if}}
 </form>
+
+
+</div>

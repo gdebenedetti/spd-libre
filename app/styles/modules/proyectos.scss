@@ -1,3 +1,7 @@
+$mobile: new-breakpoint(max-width 650px 6);
+$tablet: new-breakpoint(max-width 768px 12);
+$desktop: new-breakpoint(max-width 993px 12);
+
 .proyecto-container {
 	
 	@include outer-container(100%);
@@ -8,6 +12,33 @@
 		width: 100%;
 		padding: 10px 0;
 		border-bottom: 1px solid #ddd;
-	}
+		display: flex;
 
+		a {
+			flex: 1;
+			text-align: center;
+		}
+
+		p {
+			flex: 2;
+			line-height: 20px;
+			text-align: center;
+
+			@include media($mobile) {
+			    order: 2;
+			}
+		}
+
+		time {
+			flex: 2;
+			text-align: right;
+		    padding-right: 15px;
+
+		    @include media($mobile) {
+			    text-align: center;
+			    flex: 1;
+			    order: 1;
+			}
+		}
+	}
 }

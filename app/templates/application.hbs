@@ -1,4 +1,6 @@
 {{document-title title="SPD"}}
+
+{{#if session.isAuthenticated}}
 <nav>
 	{{#link-to 'index' class="app-logo"}}
 		<img src="assets/images/logo-hcdn.png">
@@ -49,4 +51,13 @@
 	</div>
 </header>
 
+
 {{liquid-outlet class="main-content"}}
+
+{{else}}
+
+{{liquid-outlet class="login-container"}}
+
+
+
+{{/if}}
