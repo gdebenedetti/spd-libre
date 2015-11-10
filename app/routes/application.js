@@ -21,10 +21,13 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
  },
 
  actions: {
-    error: function() {
+    error: function(error, transition) {
+      console.log(error)
       this.render('error', {
-        into: 'application'
+        into: 'application',
+        model: error
       });
+      return false;
     }
   }	
 });
