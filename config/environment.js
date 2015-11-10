@@ -16,8 +16,8 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      client_id: 'K2io5Bw;3B5wCYhRoRbz5ifsx@;WR-LfMqkdHfa?',
-      client_secret: 'p!fY;iymLsP0IolSnkCAz6Tj;2:S?S6:od.q2ID7P.LaS87YBpWrmnUILE9u6gYwxvNuuX4dK8O=3L5cIHR5Xv.D=IXa3cmjl!S5aoNpskj.5puRWwAB7Rq97H@4o.@S',
+      client_id: 'BEEeD62Nwr7fGQGIEsv2pcHgCRBcIRHNYi2WbC0P',
+      client_secret: 't.CuVCxUMm?YzaXt;!C@39vIqTkLy9xz:vc;r@lHbc2dY3hiwv!cBqQrb6OV7.RYRAaroQ5zXLboGzlXOO5STJUflGuW:rptCrIXXbpiDYVr92vu6@=m87w.oKJvs@:j',
       
       //host: 'http://localhost:4200',
 
