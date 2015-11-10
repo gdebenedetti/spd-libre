@@ -24,8 +24,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
  actions: {
     error: function(error, transition) {
 		var notify = this.get('notify');
-		var message = notify.alert(error.responseText, {
-		  closeAfter: 5000 // or set to null to disable auto-hiding 
+		var message = notify.alert({html: error.responseText }, {
+		  closeAfter: 5000,
+		  radius: true
 		});
       	return true;
     },
