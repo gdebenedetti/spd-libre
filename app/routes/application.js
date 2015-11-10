@@ -1,8 +1,9 @@
 import Ember from 'ember';
+
 import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
- 
+
  model: function () {
  	var _this = this;
 	var promise = new Promise(function(resolve, reject) {
@@ -22,13 +23,12 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
  actions: {
     error: function(error, transition) {
-      this.render('error', {
-        into: 'application',
-        outlet: 'error',
-        model: error
-      });
-      return false;
-    }
+		var notify = this.get('notify');
+		var message = notify.alert(error.responseText, {
+		  closeAfter: 5000 // or set to null to disable auto-hiding 
+		});
+      	return true;
+    },
   }	
 });
 
