@@ -14,7 +14,9 @@ export default Ember.Controller.extend(LoginControllerMixin, {
 			var description = error.error_description;
 			_this.set('errorMessage', message);
 			_this.set('errorDescription', description);
+			_this.get('notify').alert({html: error.error_description});
         });
+
       }
     }	
 });
