@@ -75,7 +75,8 @@ module.exports = function(environment) {
 
      ENV['simple-auth'] = {
          authorizer: 'simple-auth-authorizer:oauth2-bearer',
-         session: 'session:custom'
+         session: 'session:custom',
+         crossOriginWhitelist: ['http://186.33.210.25'],
      };
 
      ENV['simple-auth-oauth2'] = {
