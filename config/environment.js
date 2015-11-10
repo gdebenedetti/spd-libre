@@ -70,6 +70,18 @@ module.exports = function(environment) {
      ENV.APP.LOG_TRANSITIONS = false;
      ENV.APP.LOG_TRANSITIONS_INTERNAL = false;
      ENV.APP.LOG_VIEW_LOOKUPS = false;
+
+     ENV.APP.host = "http://186.33.210.25/";
+
+     ENV['simple-auth'] = {
+         authorizer: 'simple-auth-authorizer:oauth2-bearer',
+         session: 'session:custom'
+     };
+
+     ENV['simple-auth-oauth2'] = {
+       serverTokenEndpoint: 'http://186.33.210.25/oauth/token/',
+     };
+
   }
 
   if (environment === 'test') {
@@ -86,6 +98,14 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
 
+    ENV['simple-auth'] = {
+      authorizer: 'simple-auth-authorizer:oauth2-bearer',
+      session: 'session:custom'
+    };
+
+    ENV['simple-auth-oauth2'] = {
+      serverTokenEndpoint: 'oauth/token/',
+    };
   }
 
   ENV['contentSecurityPolicy'] = {
@@ -98,14 +118,6 @@ module.exports = function(environment) {
     'media-src': "* 'self' 'unsafe-inline' "
   };
 
-  ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:oauth2-bearer',
-    session: 'session:custom'
-  };
-
-  ENV['simple-auth-oauth2'] = {
-    serverTokenEndpoint: 'oauth/token/',
-  };
 
   
   return ENV;

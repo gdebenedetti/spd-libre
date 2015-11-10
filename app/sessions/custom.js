@@ -1,4 +1,5 @@
 import SimpleAuthSession from 'simple-auth/session';
+import config from '../config/environment';
 
 var CustomSession = SimpleAuthSession.extend({
 	user: null,
@@ -6,14 +7,14 @@ var CustomSession = SimpleAuthSession.extend({
     var userId = this.get('access_token');
     var _this = this;
     if (!Ember.isEmpty(userId)) {
-  		jQuery.getJSON('oauth/info_user/', function(json) {
+  		jQuery.getJSON((config.APP.host || '') + 'oauth/info_user/', function(json) {
           $.ajax({
               type : "POST",
-              url : "app/user/access",
+              url : (config.APP.host || '') + 'app/user/access',
               data : json,
               success : function(data) {
                 data = JSON.parse(data);
-                jQuery.getJSON('app/firmantesarha-get-by-user/' + json.cuil, function(firmantes) {
+                jQuery.getJSON((config.APP.host || '') + 'app/firmantesarha-get-by-user/' + json.cuil, function(firmantes) {
     		          _this.set('user', json);
                   _this.set('user.comisiones', data.comisiones);
                   if (firmantes[0]) {
