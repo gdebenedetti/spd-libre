@@ -21,6 +21,7 @@ export default Ember.Component.extend({
   },
 
   didInsertElement: function() {
+    console.log('1');
     var _this = this;
     
     this.set('guid', Ember.guidFor(this));
@@ -28,11 +29,12 @@ export default Ember.Component.extend({
     Ember.run.later(function () {
       _this._bindScroll();
     });
+
     this._checkIfInView();
   },
 
   willDestroyElement: function() {
-    this._unbindScroll();
+    //this._unbindScroll();
   },
 
   _bindScroll: function() {
