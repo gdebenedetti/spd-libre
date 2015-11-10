@@ -28,7 +28,7 @@ fullNodeProxy.prototype.web = function(req, res) {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 	if(this.target) {
         var headers = {'content-type': 'application/x-www-form-urlencoded', 'rejectUnauthorized': 'false'};
-
+        console.log(req.headers.authorization);
         if (req.headers.authorization) {
             headers = {'content-type': 'application/x-www-form-urlencoded', 'Authorization': req.headers.authorization, 'rejectUnauthorized': 'false'};
         }
