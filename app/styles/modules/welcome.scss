@@ -3,10 +3,17 @@ $tablet: new-breakpoint(max-width 768px 12);
 $desktop: new-breakpoint(max-width 993px 12);
 
 .welcome {
-	width: 100%;
-	text-align: center;
-	height: 500px;
-	padding: 140px;
+    width: 100%;
+    text-align: center;
+    height: 40vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
 
 	@include media($mobile) {
 		padding: 40px;

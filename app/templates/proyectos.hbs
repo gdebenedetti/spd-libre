@@ -14,11 +14,14 @@
 		<div class="-list">
 			<div class="proyecto-container">
 				{{#each model as |proyecto|}}
-				<div class="proyecto-item -item">
+				<div class="proyecto-item">
 					{{#link-to 'proyectos.show' proyecto.id}}{{proyecto.codigo_exp}}{{/link-to}}
-					{{proyecto.tipo}} {{proyecto.tipo_camara}} 
-					Periodo {{proyecto.periodo}} <br>
-					<time>{{time-format proyecto.fecha '[El] Do [de] MMMM [de] dddd [a las] h:mm'}}</time>
+					<p>
+						<b>{{proyecto.tipo}}</b> <br>
+						<span>{{proyecto.tipo_camara}} </span>
+					</p>
+					<p>Periodo {{proyecto.periodo}}</p>
+					<time>{{time-format proyecto.fecha '[El] dddd Do [de] MMMM  [a las] h:mm'}}</time>
 				</div>
 				{{/each}}
 			</div>
