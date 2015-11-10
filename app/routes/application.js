@@ -22,9 +22,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
  actions: {
     error: function(error, transition) {
-      console.log(error)
       this.render('error', {
         into: 'application',
+        outlet: 'error',
         model: error
       });
       return false;
