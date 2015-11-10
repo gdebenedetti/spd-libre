@@ -19,6 +19,14 @@ module.exports = function(app) {
     extended: true
   }));
 
+  app.all('*', function(req, res, next) {
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Origin', req.headers.origin)
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization');
+    next();
+  });
+
   app.use(proxyPath, function(req, res, next) {
     apiProxy.web(req, res);
   });
