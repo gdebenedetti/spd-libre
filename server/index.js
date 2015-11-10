@@ -5,9 +5,9 @@ var appPath = '/app';
 var bodyParser = require('body-parser');
 var globSync   = require('glob').sync;
 
-var apiProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'https://srv-sparl-8.hcdn.gob.ar:9000/apirest' } );
-var appProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'http://sparl.hcdn.gob.ar' } );
-var oauthProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'https://srv-sparl-7.hcdn.gob.ar:9000/o' } );
+var apiProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'https://186.33.210.53:9000/apirest' } );
+var appProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'http://186.33.210.36' } );
+var oauthProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'https://186.33.210.56:9000/o' } );
 
 var path = require('path');
 
