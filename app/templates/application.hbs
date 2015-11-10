@@ -1,7 +1,7 @@
 {{document-title title="SPD"}}
 
 {{#if session.isAuthenticated}}
-<nav>
+<nav {{bind-attr class="isShowMenu:show"}}>
 	{{#link-to 'index' class="app-logo"}}
 		<img src="assets/images/logo-hcdn.png">
 	{{/link-to}}
@@ -38,8 +38,8 @@
 
 <header>
 	<div class="action-bar">
-		<a class="smart-search disabled">
-			{{fa-icon 'angle-left'}} 
+		<a class="smart-search" {{action 'toggleMenu'}}>
+			{{fa-icon 'bars'}} 
 		</a>
 	</div>
 	<div class="user-login">
