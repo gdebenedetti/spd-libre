@@ -16,23 +16,35 @@ export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
 		var availableFilters = [];
 
 		availableFilters.pushObject(Ember.Object.create({
-			name: 'Cámara',
-			values: ['Diputados', 'Senadores'],
-			template: 'simple-select'
+			name: 'Periodo',
+			template: 'input-number',
+			field: 'periodo'
 		}));
 
 		availableFilters.pushObject(Ember.Object.create({
 			name: 'Origen',
 			values: ['Diputados', 'Senadores'],
-			template: 'simple-select'
+			template: 'simple-select',
+			field: 'tipo_camara'
 		}));
 
 		availableFilters.pushObject(Ember.Object.create({
-			name: 'Otro',
-			values: ['Diputados', 'Senadores'],
-			template: 'simple-select'
+			name: 'Código',
+			template: 'input-text',
+			field: 'codigo_exp'
+		}));	
+
+		availableFilters.pushObject(Ember.Object.create({
+			name: 'Orden Del dia',
+			template: 'input-number',
+			field: 'od_numero'
 		}));
 
+		availableFilters.pushObject(Ember.Object.create({
+			name: 'Fecha Creacion',
+			template: 'input-date',
+			field: 'fecha_desde'
+		}));
 
 		controller.set('availableFilters', availableFilters);
 	}
