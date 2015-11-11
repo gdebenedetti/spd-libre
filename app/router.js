@@ -23,6 +23,9 @@ Router.map(function() {
     this.route('show', { path: ':ordenes_del_dia_id' });
   });
 
+  this.resource('citaciones', function() {
+    this.route('show', { path: ':citacion_id' });
+  });
 });
 
 export default Router;

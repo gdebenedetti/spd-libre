@@ -1,0 +1,25 @@
+
+{{outlet}}
+
+<div class="container comisiones">
+	<div class="heading">
+		<h1>Comisiones</h1>
+		<div class="-actions">
+			<div class="sort">
+				{{fa-icon 'filter'}}
+			</div>
+		</div>
+	</div>
+	<section class="scroll">
+		<div class="-list">
+			{{#each model as |citacion|}}
+					<div class="citacion-item">
+						{{time-format citacion.fecha '[El] Do [de] MMMM [de] dddd [a las] h:mm'}}<br> {{citacion.estado}} <br> {{citacion.resumen}} <br> {{citacion.observaciones}} <br> <small>({{citacion.fk_lugar.nombre}} | {{citacion.fk_lugar.ubicacion}})</small>
+					</div>
+			{{/each}}
+		</div>
+		{{infinity-loader infinityModel=model targetScroll=".scroll"}}
+	</section>
+</div>
+
+
