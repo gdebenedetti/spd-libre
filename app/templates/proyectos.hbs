@@ -1,31 +1,10 @@
 
 {{outlet}}
 
+
+
 <div class="container proyectos">
-	<div class="heading">
-		<h1>Proyectos</h1>
-		<div class="-actions">
-			<div class="sort">
-				{{fa-icon 'filter'}}
-			</div>
-		</div>
-	</div>
-	<section class="scroll">
-		<div class="-list">
-			<div class="proyecto-container">
-				{{#each model as |proyecto|}}
-				<div class="proyecto-item">
-					{{#link-to 'proyectos.show' proyecto.id}}{{proyecto.codigo_exp}}{{/link-to}}
-					<p>
-						<b>{{proyecto.tipo}}</b> <br>
-						<span>{{proyecto.tipo_camara}} </span>
-					</p>
-					<p>Periodo {{proyecto.periodo}}</p>
-					<time>{{time-format proyecto.fecha '[El] dddd Do [de] MMMM  [a las] h:mm'}}</time>
-				</div>
-				{{/each}}
-			</div>
-		</div>
-		{{infinity-loader infinityModel=model targetScroll=".scroll"}}
-	</section>
+	{{filter-panel availableFilters=availableFilters title="Proyectos"}}
+
+	{{transform-list items=model.proyectos model=model action="infinityLoad" partialItem='partials/proyecto-list-item' classContainer="proyecto-container"}}
 </div>

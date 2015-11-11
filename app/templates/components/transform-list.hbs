@@ -1,0 +1,10 @@
+<section class="scroll">
+	<div class="-list">
+		<div class="{{classContainer}}">
+			{{#each items as |item|}}
+				{{partial partialItem}}
+			{{/each}}
+		</div>
+	</div>
+	{{infinity-loader infinityModel=model targetScroll=".scroll"}}
+</section>

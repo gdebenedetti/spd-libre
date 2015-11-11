@@ -18,6 +18,7 @@
     "pace": "vectart/pace#master",
     "perfect-scrollbar": "~0.6.7",
     "qunit": "~1.17.1",
-    "tooltipster": "~3.3.0"
+    "tooltipster": "~3.3.0",
+    "localforage": "~1.2.1"
   }
 }

@@ -44,6 +44,7 @@
     "ember-export-application-global": "^1.0.2",
     "ember-hold-button": "0.3.2",
     "ember-in-viewport": "2.0.0",
+    "ember-localforage-adapter": "2.1.1",
     "ember-notify": "4.3.0",
     "ember-perfectscroll": "0.0.8",
     "glob": "^5.0.2",

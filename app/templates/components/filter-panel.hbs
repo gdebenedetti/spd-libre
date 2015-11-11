@@ -1,0 +1,26 @@
+<div class="heading">
+	<h1>{{title}}</h1>
+	<div class="-actions" {{action 'toggleShowAvailableFilters'}}>
+		<div class="sort">
+			{{fa-icon 'filter'}}
+		</div>
+	</div>
+	{{#if showAvailableFilters}}
+	<div>
+		<ul>
+		{{#each availableFilters as |availableFilter|}}
+			<li> 
+				{{availableFilter.name}} 
+				<a {{action 'addFilter' availableFilter}}> Agregar </a>
+			</li>
+		{{/each}} 
+		</ul>
+	</div>
+	{{/if}}
+
+	{{#each filters as |filter|}}
+		{{filter-item filter=filter}}
+	{{/each}}
+
+</div>
+

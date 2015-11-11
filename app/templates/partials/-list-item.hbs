@@ -1,0 +1,9 @@
+<div class="proyecto-item">
+	{{#link-to 'proyectos.show' item.id}}{{item.codigo_exp}}{{/link-to}}
+	<p>
+		<b>{{item.tipo}}</b> <br>
+		<span>{{item.tipo_camara}} </span>
+	</p>
+	<p>Periodo {{item.periodo}}</p>
+	<time>{{time-format item.fecha '[El] dddd Do [de] MMMM  [a las] h:mm'}}</time>
+</div>
