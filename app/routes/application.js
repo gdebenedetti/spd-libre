@@ -30,6 +30,10 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 		});
       	return true;
     },
+
+	willTransition: function(transition) { 
+		this.controller.set('isShowMenu', false);
+	}    
   }	
 });
 
