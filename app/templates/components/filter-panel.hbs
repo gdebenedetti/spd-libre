@@ -12,7 +12,7 @@
 	{{#if showAvailableFilters}}
 	<div class="add-filter-list">
 		<ul>
-		{{#each availableFilters as |availableFilter|}}
+		{{#each availableFiltersList as |availableFilter|}}
 			<li> 
 				{{availableFilter.name}} 
 				<a {{action 'addFilter' availableFilter}}> Agregar </a>

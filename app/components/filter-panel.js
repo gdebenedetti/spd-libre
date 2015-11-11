@@ -10,6 +10,15 @@ export default Ember.Component.extend({
 		this.set('filters', []);
 	}.on('didInsertElement'),
 
+
+	availableFiltersList: Ember.computed('availableFilters', 'filters.@each', function () {
+		var list = this.get('availableFilters');
+		this.get('filters').forEach(function (filter) {
+			list = list.without(filter.get('type'));
+		});
+		return list;
+	}),
+
 	actions: {
 
 		toggleShowAvailableFilters: function () {
