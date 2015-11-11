@@ -2,12 +2,23 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 import InfinityRoute from "../mixins/infinity-route";
 
 export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
-	_listName: 'model.proyectos',
+	_listName: 'model.proyectos.content',
 
 	model: function() {
 		return Ember.RSVP.hash({
           	proyectos: this.infinityModel("proyecto", { perPage: 25, startingPage: 1, ordering: '-codigo_anio, -codigo_num, -codigo_origen', tipo_camara: 'Diputados', firm_nombre_leg_func: this.get('session.user.diputado') })
      	});		
+	},
+
+	actions: {
+		search: function (filters) {
+			var query = {perPage: 25, startingPage: 1, ordering: '-codigo_anio, -codigo_num, -codigo_origen'};
+			filters.forEach(function (filter) {
+				query[filter.get('type.field')] = filter.get('value');
+			})
+			console.log(query);
+			this.get('controller').set('model.proyectos', this.infinityModel("proyecto", query));
+		}
 	},
 
 	setupController: function (controller, model) {

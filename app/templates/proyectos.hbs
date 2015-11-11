@@ -4,7 +4,7 @@
 
 
 <div class="container proyectos">
-	{{filter-panel availableFilters=availableFilters title="Proyectos"}}
+	{{filter-panel availableFilters=availableFilters title="Proyectos" action='search'}}
 
 	{{transform-list items=model.proyectos model=model action="infinityLoad" partialItem='partials/proyecto-list-item' classContainer="proyecto-container"}}
 </div>

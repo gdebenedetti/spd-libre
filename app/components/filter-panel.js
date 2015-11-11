@@ -25,16 +25,16 @@ export default Ember.Component.extend({
 			this.get('filters').pushObject(filter);
 		},
 
-		saveFilter: function (filter) {
+		saveSearch: function (filter) {
 
 		},
 
-		deleteFilter: function (filter) {
-
+		removeFilter: function (filter) {
+			this.get('filters').removeObject(filter);
 		},
 
 		search: function () {
-
+			this.sendAction('action', this.get('filters'))
 		},
 	},	
 });

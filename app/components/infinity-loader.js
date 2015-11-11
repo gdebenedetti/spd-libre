@@ -10,7 +10,7 @@ export default Ember.Component.extend({
   loadMoreAction: 'infinityLoad',
   loadingText: 'Loading Infinite Model...',
   loadedText: 'Infinite Model Entirely Loaded.',
-  destroyOnInfinity: true,
+  destroyOnInfinity: false,
   developmentMode: false,
   targetScroll: '',
 
@@ -21,10 +21,11 @@ export default Ember.Component.extend({
   },
 
   didInsertElement: function() {
-    console.log('1');
     var _this = this;
     
     this.set('guid', Ember.guidFor(this));
+
+    this._unbindScroll();
 
     Ember.run.later(function () {
       _this._bindScroll();
@@ -53,12 +54,12 @@ export default Ember.Component.extend({
   },
 
   _checkIfInView: function() {
-    var selfOffset   = this.$().offset().top;
-    var windowBottom = Ember.$(this.get('targetScroll')).height() + this.$().height() * 3;
-    var inView = selfOffset < windowBottom ? true : false;
-    if (inView && !this.get('developmentMode')) {
-      this.sendAction('loadMoreAction');
-    }
+      var selfOffset   = this.$().offset().top;
+      var windowBottom = Ember.$(this.get('targetScroll')).height() + this.$().height() * 3;
+      var inView = selfOffset < windowBottom ? true : false;
+      if (inView && !this.get('developmentMode')) {
+        this.sendAction('loadMoreAction');
+      }
   },
 
   loadedStatusDidChange: Ember.observer('infinityModel.reachedInfinity', 'destroyOnInfinity', function() {

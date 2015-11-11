@@ -8,4 +8,10 @@ export default Ember.Component.extend({
 		}
 		return null;
 	}),
+
+	actions: {
+		removeFilter: function (filter) {
+			this.sendAction('action', filter);
+		}
+	}
 });

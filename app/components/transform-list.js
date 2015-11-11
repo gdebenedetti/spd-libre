@@ -8,7 +8,6 @@ export default Ember.Component.extend({
 
 	actions: {
 		infinityLoad: function () {
-			console.log('xD');
 			this.sendAction();
 		},
 	},
