@@ -30,6 +30,11 @@ nav {
 	transition: all 0.6s;
 	z-index: 1;
 
+	@include media($mobile) {
+    	padding-top: 60px;
+	}
+
+
 
 
 	@include media($mobile) {
@@ -49,7 +54,7 @@ nav {
 	transition: all 0.4s;
 	-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
 	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-	padding-top: 60px;
+	//padding-top: 60px;
     margin-right: 0;
     margin-left: 150px;
     height: 100vh;
@@ -96,4 +101,12 @@ article {
 	@include media($mobile) {
 		font-size: 80%;
 	}
+}
+
+.action-bar {
+z-index: layer(header);
+}
+
+.user-login {
+z-index: layer(header);
 }

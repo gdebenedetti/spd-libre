@@ -1,5 +1,5 @@
-<h2>{{filter.type.name}}</h2>
-<a{{action 'removeFilter' filter}}>x</a>
+<h2 class="title">{{filter.type.name}}</h2>
+<a class="reset-filter" {{action 'removeFilter' filter}}>x</a>
 
 {{#if partialName}}
 	{{partial partialName}}

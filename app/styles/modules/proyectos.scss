@@ -2,6 +2,13 @@ $mobile: new-breakpoint(max-width 650px 6);
 $tablet: new-breakpoint(max-width 768px 12);
 $desktop: new-breakpoint(max-width 993px 12);
 
+.proyectos {
+	padding: 0 25px;
+	display: block;
+	float: left;
+	width: 100%;
+}
+
 .proyecto-container {
 	
 	@include outer-container(100%);

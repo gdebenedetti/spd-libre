@@ -1,10 +1,10 @@
-
 {{outlet}}
 
-
-
-<div class="container proyectos">
+<div class="container">
 	{{filter-panel availableFilters=availableFilters title="Proyectos" action='search'}}
 
-	{{transform-list items=model.proyectos model=model action="infinityLoad" partialItem='partials/proyecto-list-item' classContainer="proyecto-container"}}
+	<div class="proyectos">
+
+		{{transform-list items=model.proyectos model=model action="infinityLoad" partialItem='partials/proyecto-list-item' classContainer="proyecto-container"}}
+	</div>
 </div>

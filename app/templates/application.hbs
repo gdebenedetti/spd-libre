@@ -28,7 +28,8 @@
 		</li>  
 		<li>
 	  		{{#link-to 'citaciones.index'}}
-				{{fa-icon 'list-ul'}}
+				{{fa-icon 'calendar-o'}}
+				{{currentDate}}
 		  		<span>Citaciones</span>
 	  		{{/link-to}}
 		</li> 			
@@ -40,22 +41,25 @@
 		</li>  	
 	  </ul>
 	{{/if}}
-</nav>
 
-<header>
-	<div class="action-bar">
-		<a class="smart-search" {{action 'toggleMenu'}}>
-			{{fa-icon 'bars'}} 
-		</a>
-	</div>
 	<div class="user-login">
 		{{#if session.isAuthenticated}}
-		  	{{session.user.nombre}} ({{session.user.diputado}}) <a {{ action 'invalidateSession' }}>Salir</a>
+		  	<p>{{session.user.nombre}} <span>({{session.user.diputado}})</span></p>
+		  	<a {{ action 'invalidateSession' }}>Salir</a>
 		{{else}}
 	  		{{#link-to 'login'}}Ingresar{{/link-to}}
 		{{/if}}
 	</div>
-</header>
+</nav>
+
+
+<div class="action-bar">
+	<a class="smart-search" {{action 'toggleMenu'}}>
+		{{fa-icon 'bars'}} 
+	</a>
+</div>
+
+
 
 
 {{liquid-outlet class="main-content"}}

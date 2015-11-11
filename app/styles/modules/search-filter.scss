@@ -1,0 +1,79 @@
+$mobile: new-breakpoint(max-width 650px 6);
+$tablet: new-breakpoint(max-width 768px 12);
+$desktop: new-breakpoint(max-width 993px 12);
+
+.filter-container {
+    display: flex;
+    justify-content: flex-start;
+    background: #F2F3F4;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0 15px 25px;
+    flex-wrap: wrap;
+	
+	.add-filter-list {
+		position: fixed;
+		right: 120px;
+		width: 60%;
+		top: 17px;
+		text-align: center;
+
+		ul {
+			display: flex;
+
+			li {
+			    line-height: 22px;
+			}
+
+			a {
+				color: #3498DB;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.search-filter {
+		flex: 1 1 200px;
+		position: relative;
+		margin: 0 0 10px 0;
+		padding-right: 30px;
+
+			@include media($mobile) {
+			    flex: 1 1 100%;
+			    position: relative;
+			    margin: 0 0 18px 0;
+			    padding-right: 30px;
+			}
+
+		    
+
+		&.active {
+
+		}
+
+		.reset-filter {
+			position: absolute;
+			right: 30px;
+			font-size: 17px;
+			color: #999;
+			top: 0;
+			font-weight: 600;
+		}
+
+		.title {
+		    position: relative;
+		    font-family: 'PT Sans Caption';
+		    font-size: 16px;
+		    font-weight: 400;
+		}
+
+		select, input {
+		    position: relative;
+		    width: 100%;
+		    padding: 7px;
+		    margin-top: 10px;
+		    background: #fff;
+		    border: 1px solid #ddd;
+		    font-size: 17px;
+		}
+	}
+}

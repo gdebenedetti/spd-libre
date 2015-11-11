@@ -1,12 +1,16 @@
 <div class="heading">
 	<h1>{{title}}</h1>
 	<div class="-actions" {{action 'toggleShowAvailableFilters'}}>
-		<div class="sort">
+		<div class="item sort">
 			{{fa-icon 'filter'}}
 		</div>
 	</div>
+</div>
+
+<div class="filter-container">
+	
 	{{#if showAvailableFilters}}
-	<div>
+	<div class="add-filter-list">
 		<ul>
 		{{#each availableFilters as |availableFilter|}}
 			<li> 
@@ -19,7 +23,7 @@
 	{{/if}}
 
 	{{#each filters as |filter|}}
-		{{filter-item filter=filter action="removeFilter"}}
+		{{filter-item filter=filter class="search-filter" action="removeFilter"}}
 	{{/each}}
 
 	<a {{action 'search'}}>Buscar</a>

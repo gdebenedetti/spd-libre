@@ -1,23 +1,20 @@
 
 {{outlet}}
 
-<div class="container comisiones">
+<div class="container">
 	<div class="heading">
 		<h1>Comisiones</h1>
-		<div class="-actions">
-			<div class="sort">
-				{{fa-icon 'filter'}}
-			</div>
-		</div>
 	</div>
-	<section class="scroll">
-		<div class="-list">
-			{{#each model as |comision|}}
-				<div class="-item">{{#link-to 'comisiones.show' comision.id}} {{comision.datos.nombre}} {{/link-to}}</div>
-			{{/each}}
-		</div>
-		{{infinity-loader infinityModel=model targetScroll=".scroll"}}
-	</section>
+	<div class="comisiones">
+		<section class="scroll">
+			<div class="flex-cards">
+				{{#each model as |comision|}}
+					<div class="flex-item">{{#link-to 'comisiones.show' comision.id}} {{comision.datos.nombre}} {{/link-to}}</div>
+				{{/each}}
+			</div>
+			{{infinity-loader infinityModel=model targetScroll=".scroll"}}
+		</section>
+	</div>
 </div>
 
 

@@ -4,18 +4,22 @@
 
 .container {
 	@include outer-container(100%);
-    padding: 25px;
 
     @include media($mobile) {
-		padding: 25px 0;
+		padding: 0;
 	}
 
 	.heading {
 		@include display(flex);
 		@include justify-content(space-between);
+		padding: 20px 80px 20px 28px;
+		background: #f1f1f1;
+		padding-left: 25px;
+	    border-bottom: 1px solid #AEB6BF;
+	    
 
 		 @include media($mobile) {
-			padding: 0 15px;
+			padding: 20px 80px;
 		}
 
 		h1 {
@@ -23,11 +27,21 @@
 		}
 
 		.-actions {
-
+			position: fixed;
+			right: 26px;
+			top: 10px;
+			display: flex;
 		}
 
-		.sort {
-
+		.item {
+			cursor: pointer;
+			width: 50px;
+			line-height: 52px;
+			/* background: red; */
+			height: 50px;
+			font-size: 25px;
+			text-align: center;
+		    margin: 0 5px;
 		}
 
 	}
