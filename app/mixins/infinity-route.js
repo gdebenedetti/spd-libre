@@ -95,7 +95,7 @@ export default Ember.Mixin.create({
         var totalPages = Math.round(infinityModel.get('meta.total_pages') / _this.get('_perPage'));
         _this.set('_currentPage', startingPage);
         _this.set('_totalPages', totalPages);
-        infinityModel.set('reachedInfinity', !_this.get('_canLoadMore'));
+        //infinityModel.set('reachedInfinity', !_this.get('_canLoadMore'));
         //_this.set('controller.model.reachedInfinity', !_this.get('_canLoadMore'));
         infinityModel.set('reachedInfinity', !_this.get('_canLoadMore'));
         Ember.run.scheduleOnce('afterRender', _this, 'infinityModelUpdated', { lastPageLoaded: startingPage, totalPages: totalPages, newObjects: infinityModel });
