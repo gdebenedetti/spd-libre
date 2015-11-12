@@ -2,6 +2,10 @@
 @import "base/base";
 @import "modules/modules";
 
+$mobile: new-breakpoint(max-width 650px 6);
+$tablet: new-breakpoint(max-width 768px 12);
+$desktop: new-breakpoint(max-width 993px 12);
+
 .side-panel {
     position: fixed;
     top: 73px;
@@ -10,6 +14,10 @@
     background: #fff;
     padding: 0;
     bottom: 0;
+
+    @include media($mobile) {
+        width: 100%;
+    }
 }
 
 .infinity-loader {

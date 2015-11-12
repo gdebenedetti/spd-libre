@@ -48,5 +48,15 @@
     position: fixed;
     right: 30px;
     top: 90px;
-    z-index: 5000;
+    z-index: 7000;
+
+    a {
+        font-size: 22px;
+        width: 45px;
+        display: block;
+        height: 45px;
+        text-align: center;
+        line-height: 45px;
+        cursor: pointer;
+    }
 }

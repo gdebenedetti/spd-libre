@@ -11,30 +11,7 @@ $desktop: new-breakpoint(max-width 993px 12);
     flex-wrap: wrap;
     align-items: flex-end;
 	
-	.add-filter-list {
-		position: fixed;
-	    right: 0;
-	    width: auto;
-	    top: 73px;
-	    text-align: right;
-	    z-index: 1;
 
-		ul {
-			display: flex;
-			flex-direction: column;
-			background: #EBF5FB;
-			padding: 5px;
-
-			li {
-		        padding: 14px;
-			}
-
-			a {
-				color: #3498DB;
-				text-decoration: underline;
-			}
-		}
-	}
 
 	.search-btn {
 		flex-basis: 130px;
@@ -77,6 +54,7 @@ $desktop: new-breakpoint(max-width 993px 12);
 			color: #999;
 			top: 0;
 			font-weight: 600;
+			cursor: pointer;
 		}
 
 		
@@ -98,4 +76,37 @@ $desktop: new-breakpoint(max-width 993px 12);
 		    font-size: 17px;
 		}
 	}
+}
+
+.add-filter-list {
+	position: fixed;
+    right: 0;
+    width: auto;
+    top: 73px;
+    text-align: right;
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		background: #EBF5FB;
+		padding: 5px;
+	    height: 100vh;
+
+		li {
+	        padding: 14px;
+		}
+
+		a {
+			color: #3498DB;
+			text-decoration: underline;
+			padding: 0;
+			cursor: pointer;
+		}
+	}
+}
+
+.filter-box {
+	display: flex;
+	flex: 2;
+	flex-wrap: wrap;
 }

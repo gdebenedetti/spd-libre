@@ -7,24 +7,26 @@
 	</div>
 </div>
 
-<div class="filter-container">
-	
-	{{#if showAvailableFilters}}
-	<div class="add-filter-list side-panel-test">
-		<ul>
-		{{#each availableFiltersList as |availableFilter|}}
-			<li> 
-				{{availableFilter.name}} 
-				<a {{action 'addFilter' availableFilter}}> Agregar </a>
-			</li>
-		{{/each}} 
-		</ul>
-	</div>
-	{{/if}}
+{{#if showAvailableFilters}}
+<div class="add-filter-list side-panel-test">
+	<ul>
+	{{#each availableFiltersList as |availableFilter|}}
+		<li> 
+			{{availableFilter.name}} 
+			<a {{action 'addFilter' availableFilter}}> Agregar </a>
+		</li>
+	{{/each}} 
+	</ul>
+</div>
+{{/if}}
 
+
+<div class="filter-container">
+	<div class="filter-box">
 	{{#each filters as |filter|}}
 		{{filter-item filter=filter class="search-filter" action="removeFilter"}}
 	{{/each}}
+	</div>
 
 	<a class="search-btn" {{action 'search'}}>{{fa-icon "search"}} Buscar</a>
 </div>

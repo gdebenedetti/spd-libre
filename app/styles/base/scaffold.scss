@@ -7,7 +7,7 @@ $layer: (
   offcanvas: 1,
   header: 100,
   modal: 500,
-  dropdown: 10,
+  dropdown: 6000,
   tooltip: 15
 );
 
@@ -65,6 +65,10 @@ nav {
 	}
 }
 
+.add-filter-list {
+	z-index: layer(modal) - 3;
+}
+
 header {
 	-webkit-transition: all 0.2s;
 	transition: all 0.2s;
@@ -88,7 +92,7 @@ header {
 
 
 .side-panel {
-	z-index: layer(modal) - 1;
+	z-index: layer(dropdown) - 1;
     box-shadow: 4px 0 44px rgba(0,0,0,.1)!important;
 }
 
