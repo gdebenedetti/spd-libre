@@ -1,3 +1,7 @@
+$mobile: new-breakpoint(max-width 650px 6);
+$tablet: new-breakpoint(max-width 768px 12);
+$desktop: new-breakpoint(max-width 993px 12);
+
 nav {
 	background: $main-blue;
 
@@ -14,6 +18,13 @@ nav {
 		bottom: 0;
 		width: 150px;
 		padding-top: 25px;
+
+		@include media($mobile) {
+    	height: 60px;
+    	padding-top: 10px;
+	}
+
+    
 
 		&:hover {
 			background: lighten($main-blue, 10%);
@@ -45,6 +56,12 @@ nav {
     font-weight: 600;
     border-bottom: 1px solid #21618C;
     border-top: 1px solid #21618C;
+
+    @include media($mobile) {
+    	padding: 10px 12px 6px 12px;
+    	height: 92px;
+    	bottom: 60px;
+	}
 
     span {
 		display: none;

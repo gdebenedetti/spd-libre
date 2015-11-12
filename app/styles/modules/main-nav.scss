@@ -2,6 +2,8 @@ $mobile: new-breakpoint(max-width 650px 6);
 $tablet: new-breakpoint(max-width 768px 12);
 $desktop: new-breakpoint(max-width 993px 12);
 
+$mobile-height: new-breakpoint(max-height 620px 12);
+
 .main-nav {
 	float: left;
 	width: 100%;
@@ -44,6 +46,10 @@ $desktop: new-breakpoint(max-width 993px 12);
 
 	span {
 		@include media($mobile) {
+	    	display: none;
+		}
+
+		@include media($mobile-height) {
 	    	display: none;
 		}
 	}
