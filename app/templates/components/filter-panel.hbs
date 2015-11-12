@@ -2,7 +2,7 @@
 	<h1>{{title}}</h1>
 	<div class="-actions" {{action 'toggleShowAvailableFilters'}}>
 		<div class="item sort">
-			{{fa-icon 'filter'}}
+			{{fa-icon 'filter'}} Agregar filtros
 		</div>
 	</div>
 </div>
@@ -10,7 +10,7 @@
 <div class="filter-container">
 	
 	{{#if showAvailableFilters}}
-	<div class="add-filter-list">
+	<div class="add-filter-list side-panel-test">
 		<ul>
 		{{#each availableFiltersList as |availableFilter|}}
 			<li> 
@@ -26,6 +26,6 @@
 		{{filter-item filter=filter class="search-filter" action="removeFilter"}}
 	{{/each}}
 
-	<a {{action 'search'}}>Buscar</a>
+	<a class="search-btn" {{action 'search'}}>{{fa-icon "search"}} Buscar</a>
 </div>
 

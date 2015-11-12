@@ -21,6 +21,10 @@ $desktop: new-breakpoint(max-width 993px 12);
 		border-bottom: 1px solid #ddd;
 		display: flex;
 
+		@include media($mobile) {
+    	    flex-direction: column;
+		}
+
 		a {
 			flex: 1;
 			text-align: center;

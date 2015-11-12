@@ -34,15 +34,19 @@
 		}
 
 		.item {
-			cursor: pointer;
-			width: 50px;
-			line-height: 52px;
-			/* background: red; */
-			height: 50px;
-			font-size: 25px;
-			text-align: center;
-		    margin: 0 5px;
+			    cursor: pointer;
+    width: auto;
+    line-height: 70px;
+    height: 50px;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 5px;
+    font-weight: 600;
+
+    .fa {
+    	margin-right: 5px;
 		}
+    }
 
 	}
 

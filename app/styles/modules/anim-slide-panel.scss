@@ -23,6 +23,14 @@
     @include animation-fill-mode(forwards);
     @include prefixer(backface-visibility, hidden, webkit moz spec);
 }
+
+.side-panel-test {
+    @include animation-name(slideOpen);
+    @include animation-duration(.3s);
+    @include animation-timing-function(ease-out);
+    @include animation-fill-mode(forwards);
+    @include prefixer(backface-visibility, hidden, webkit moz spec);
+}
  
 .side-panel.close {
     @include animation-name(slideClosed);
