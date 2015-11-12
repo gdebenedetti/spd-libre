@@ -46,7 +46,7 @@ $mobile-height: new-breakpoint(max-height 620px 12);
 
 	span {
 		@include media($mobile) {
-	    	display: none;
+		//display: none;
 		}
 
 		@include media($mobile-height) {

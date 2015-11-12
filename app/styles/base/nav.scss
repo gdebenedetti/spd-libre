@@ -22,6 +22,7 @@ nav {
 		@include media($mobile) {
     	height: 60px;
     	padding-top: 10px;
+    	width: 100%;
 	}
 
     
@@ -61,6 +62,7 @@ nav {
     	padding: 10px 12px 6px 12px;
     	height: 92px;
     	bottom: 60px;
+    	width: 100%;
 	}
 
     span {
