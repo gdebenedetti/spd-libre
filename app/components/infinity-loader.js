@@ -55,7 +55,7 @@ export default Ember.Component.extend({
 
   _checkIfInView: function() {
       var selfOffset   = this.$().offset().top;
-      var windowBottom = Ember.$(this.get('targetScroll')).height() + this.$().height() * 3;
+      var windowBottom = Ember.$(this.get('targetScroll')).height() + Ember.$(this.get('targetScroll')).offset().top;
       var inView = selfOffset < windowBottom ? true : false;
       if (inView && !this.get('developmentMode')) {
         this.sendAction('loadMoreAction');
