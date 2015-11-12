@@ -32,6 +32,7 @@ export default Ember.Component.extend({
 			});
 
 			this.get('filters').pushObject(filter);
+			this.toggleProperty('showAvailableFilters');
 		},
 
 		saveSearch: function (filter) {

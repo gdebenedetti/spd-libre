@@ -14,7 +14,9 @@ export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
 		search: function (filters) {
 			var query = {perPage: 25, startingPage: 1, ordering: '-codigo_anio, -codigo_num, -codigo_origen'};
 			filters.forEach(function (filter) {
-				query[filter.get('type.field')] = filter.get('value');
+				var value = filter.get('value');
+				//console.log(Ember.typeOf(value));
+				query[filter.get('type.field')] = value;
 			})
 			this.set('controller.model.reachedInfinity', false);
 			this.get('controller').set('model.proyectos', this.infinityModel("proyecto", query));
@@ -26,36 +28,63 @@ export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
 
 		var availableFilters = [];
 
-		availableFilters.pushObject(Ember.Object.create({
-			name: 'Periodo',
-			template: 'input-number',
-			field: 'periodo'
-		}));
+		availableFilters.pushObjects([
+			Ember.Object.create({
+				name: 'Periodo',
+				template: 'input-number',
+				field: 'periodo'
+			}),
 
-		availableFilters.pushObject(Ember.Object.create({
-			name: 'Origen',
-			values: ['Diputados', 'Senadores'],
-			template: 'simple-select',
-			field: 'tipo_camara'
-		}));
+			Ember.Object.create({
+				name: 'Origen',
+				values: ['Diputados', 'Senadores'],
+				template: 'simple-select',
+				field: 'tipo_camara'
+			}),
 
-		availableFilters.pushObject(Ember.Object.create({
-			name: 'Código',
-			template: 'input-text',
-			field: 'codigo_exp'
-		}));	
+			Ember.Object.create({
+				name: 'Código',
+				template: 'input-text',
+				field: 'codigo_exp'
+			}),
 
-		availableFilters.pushObject(Ember.Object.create({
-			name: 'Orden Del dia',
-			template: 'input-number',
-			field: 'od_numero'
-		}));
+			Ember.Object.create({
+				name: 'Orden Del dia',
+				template: 'input-number',
+				field: 'od_numero'
+			}),
+			Ember.Object.create({
+				name: 'Fecha Creacion',
+				template: 'input-date',
+				field: 'fecha_desde'
+			}),
+			Ember.Object.create({
+				name: 'N° de Ley',
+				template: 'input-number',
+				field: 'nro_ley'
+			}),
+			Ember.Object.create({
+				name: 'Resultado Sancion',
+				values: ['APROBACIÓN SIMPLE', 'MEDIA SANCIÓN', 'RETIRO', 'SANCIÓN', 'ARCHIVO', 'RECHAZO'],
+				template: 'simple-select',
+				field: 'resultado'
+			}),
 
-		availableFilters.pushObject(Ember.Object.create({
-			name: 'Fecha Creacion',
-			template: 'input-date',
-			field: 'fecha_desde'
-		}));
+			Ember.Object.create({
+				name: 'Firmante',
+				template: 'input-text',
+				field: 'firm_nombre_leg_func'
+			}),
+
+			Ember.Object.create({
+				name: 'Comision',
+				field: 'giro_comision_id',
+				template: 'model-select',
+				valueField: 'content.id',
+				labelField: 'content.datos.nombre',
+				model: 'comision'
+			}),
+		]);
 
 		controller.set('availableFilters', availableFilters);
 	}
