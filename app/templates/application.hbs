@@ -45,7 +45,11 @@
 	<div class="user-login">
 		{{#if session.isAuthenticated}}
 		  	<p>{{session.user.nombre}} <span>({{session.user.diputado}})</span></p>
-		  	<a {{ action 'invalidateSession' }}>Salir</a>
+		  	{{#tool-tipster title="Mantener apretado para salir" position="top"}} 
+			  	{{#hold-button type="rectangle" action="invalidateSession"}}
+				  Salir
+				{{/hold-button}}
+			{{/tool-tipster}}
 		{{else}}
 	  		{{#link-to 'login'}}Ingresar{{/link-to}}
 		{{/if}}
