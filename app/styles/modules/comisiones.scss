@@ -13,16 +13,16 @@
     flex-wrap: wrap;
 
 	.flex-item {
-		flex: 1 1 33.333%;
+		flex: 1 1 100%;
 		border-bottom: 1px solid #ddd;
-		padding: 30px 80px;
-		text-align: center;
+		padding: 10px 20px;
+		text-align: left;
 		line-height: 25px;
 		font-size: 18px;
 		border-left: 1px solid #ddd;
-		align-items: center;
+		align-items: left;
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 		    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     -webkit-transform: translate3d(0, 0, 0);
@@ -42,7 +42,7 @@
 
 .side-panel {
 	article {
-	    padding: 60px 20px;
+	    padding: 30px 20px;
 
 		h2 {
 			text-align: center;

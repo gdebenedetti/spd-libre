@@ -1,18 +1,24 @@
 {{close-delay target=".side-panel" delay=700 closeClass="close" transitionTo='proyectos'}}
 
 {{#liquid-if model class="side-panel anim-article show"}}
-<article>
+<article class="proyectos-article">
+	<time class="proyecto-fecha">{{time-format model.fecha 'Do [de] MMMM [de] YYYY'}}</time> 
 	{{#perfect-scroll wheelSpeed=2}}
-		<h2>{{model.tipo_proy}} {{model.codigo_exp}}</h2>
+		
+		<h2>{{model.tipo_proy}} <br> {{model.codigo_exp}}</h2>
 
-		<p>
-			<small>Camara iniciadora: {{model.tipo_camara}}</small>
-			<small>Periodo: {{model.periodo}}</small>
-			<small>Fecha: {{model.fecha}}</small>
-		</p>
+		<div class="article-meta">
+			<div class="meta-item">
+				<p class="meta-title">{{model.tipo_camara}}</p>
+				<small>Camara iniciadora</small>
+			</div>
+			<div class="meta-item">
+				<p class="meta-title">{{model.periodo}}</p>
+				<small>Periodo</small>
+			</div>
+		</div>
 
-		<h3>Titulo</h3>
-		<p>{{model.titulo}}</p>
+		<p class="titulo">{{model.titulo}}</p>
 
 		<h3>Sumario</h3>
 		<p class="sumario">{{model.sumario}}</p>
