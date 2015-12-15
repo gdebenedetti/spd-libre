@@ -2,9 +2,7 @@
 
 <div class="container">
 	{{filter-panel availableFilters=availableFilters title="Proyectos" action='search'}}
-
 	<div class="proyectos">
-
 		{{transform-list items=model.proyectos model=model action="infinityLoad" partialItem='partials/proyecto-list-item' classContainer="proyecto-container"}}
 	</div>
 </div>

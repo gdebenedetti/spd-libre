@@ -1,9 +1,21 @@
 <div class="proyecto-item">
-	{{#link-to 'proyectos.show' item.id}}{{item.codigo_exp}}{{/link-to}}
-	<p>
-		<b>{{item.tipo}}</b> <br>
-		<span>{{item.tipo_camara}} </span>
-	</p>
-	<p>Periodo {{item.periodo}}</p>
-	<time>{{time-format item.fecha 'Do [de] MMMM [de] YYYY'}}</time>
+	<div class="item-left">
+		{{#link-to 'proyectos.show' item.id}}{{item.codigo_exp}}{{/link-to}}
+	</div>
+	<div class="item-center">
+		<b class="title">{{item.tipo}} de {{item.tipo_proy}}</b>
+		<p>{{item.titulo}}</p>
+	</div>
+	<div class="item-right">
+		<div class="item-meta">
+			<div class="meta-item">
+				<span class="meta-title">{{item.tipo_camara}}</span><br>
+				<small>Camara iniciadora</small>
+			</div>
+			<div class="meta-item">
+				<span class="meta-title">{{item.periodo}}</span><br>
+				<small>Periodo</small>
+			</div>
+		</div>
+	</div>
 </div>

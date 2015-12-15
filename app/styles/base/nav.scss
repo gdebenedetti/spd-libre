@@ -18,6 +18,7 @@ nav {
 		bottom: 0;
 		width: 150px;
 		padding-top: 25px;
+		left: 0;
 
 		@include media($mobile) {
     	height: 60px;
