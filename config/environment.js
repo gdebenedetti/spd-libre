@@ -71,16 +71,16 @@ module.exports = function(environment) {
      ENV.APP.LOG_TRANSITIONS_INTERNAL = false;
      ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-     ENV.APP.host = "http://186.33.210.25/";
+     ENV.APP.host = "https://spd.hcdn.gob.ar/";
 
      ENV['simple-auth'] = {
          authorizer: 'simple-auth-authorizer:oauth2-bearer',
          session: 'session:custom',
-         crossOriginWhitelist: ['http://186.33.210.25'],
+         crossOriginWhitelist: ['https://spd.hcdn.gob.ar'],
      };
 
      ENV['simple-auth-oauth2'] = {
-       serverTokenEndpoint: 'http://186.33.210.25/oauth/token/',
+       serverTokenEndpoint: 'https://spd.hcdn.gob.ar/oauth/token/',
      };
 
   }
