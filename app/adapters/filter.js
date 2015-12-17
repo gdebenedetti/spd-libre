@@ -1,3 +1,8 @@
-import LFAdapter from 'ember-localforage-adapter/adapters/localforage';
- 
-export default LFAdapter;
+import DS from 'ember-data';
+import config from '../config/environment';
+
+export default DS.RESTAdapter.extend({
+	coalesceFindRequests: true,
+	namespace: 'user',
+	host: config.APP.host || ''
+});

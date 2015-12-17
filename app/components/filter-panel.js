@@ -5,17 +5,41 @@ export default Ember.Component.extend({
 	availableFilters: null,
 	filters: null,
 	showAvailableFilters: false,
+	searchs: null,
+	currentSearch: null,
+	moduleName: '',
+	searchName: '',
+
+
+	currentSearchChanged: function () {
+		if (this.get('currentSearch')) {
+			this.set('filters', this.get('currentSearch').get('filters'));
+		} else {
+			this.set('filters', []);
+		}
+	}.observes('currentSearch'),
 
 	initFilters: function () {
 		this.set('filters', []);
+		this.set('searchs', this.container.lookup("store:main").find('custom-search', { moduleName: this.get('moduleName'), owner: this.get('owner')}));
 	}.on('didInsertElement'),
 
 
-	availableFiltersList: Ember.computed('availableFilters', 'filters.@each', function () {
+	availableFiltersList: Ember.computed('availableFilters', 'filters.@each', 'currentSearch', function () {
+		var _this = this;
 		var list = this.get('availableFilters');
+		var wo = [];
+
 		this.get('filters').forEach(function (filter) {
-			list = list.without(filter.get('type'));
+			var t = _this.get('availableFilters').findBy('name', filter.get('type').name);
+			wo.pushObject(t);
 		});
+
+
+		wo.forEach(function (w) {
+			list = list.without(w);
+		});
+
 		return list;
 	}),
 
@@ -32,15 +56,71 @@ export default Ember.Component.extend({
 			});
 
 			this.get('filters').pushObject(filter);
+
 			this.toggleProperty('showAvailableFilters');
+
+			if (this.get('currentSearch')) {
+				this.get('currentSearch').get('filters').pushObject(filter);
+				this.get('currentSearch').set('edited', true);
+			}
 		},
 
-		saveSearch: function (filter) {
+		saveSearch: function () {
+			var promises = [];
+			var _this = this;
 
+			if (this.get('currentSearch')) {
+
+				this.get('filters').forEach(function (filter) {
+					if (filter.get('isDirty') || filter.get('isNew')) {
+						promises.push(filter.save());
+					}
+				});	
+
+				Ember.RSVP.Promise.all(promises).then(function(){ 
+					_this.get('currentSearch').save();
+					_this.get('currentSearch').set('edited', false);
+				});			
+			}
+		},
+
+		createSearch: function () {
+			var promises = [];
+			var _this = this;
+
+			var s = this.container.lookup("store:main").createRecord('custom-search', {
+				owner: this.get('owner'),
+				moduleName: this.get('moduleName'),
+				name: this.get('searchName')
+			});
+
+			_this.get('filters').forEach(function (filter) {
+				s.get('filters').pushObject(filter);
+			});	
+
+			this.get('searchs.content').pushObject(s);
+			this.set('currentSearch', s);
+
+			this.set('searchName', '');
+
+			this.get('filters').forEach(function (filter) {
+				if (filter.get('isDirty') || filter.get('isNew')) {
+					promises.push(filter.save());
+				}
+			});	
+
+			Ember.RSVP.Promise.all(promises).then(function(){ 
+				_this.get('currentSearch').save();
+				_this.get('currentSearch').set('edited', false);
+			});
 		},
 
 		removeFilter: function (filter) {
 			this.get('filters').removeObject(filter);
+			if (this.get('currentSearch')) {
+				this.get('currentSearch').get('filters').removeObject(filter);
+				this.get('currentSearch').set('edited', true);
+			}
 		},
 
 		search: function () {

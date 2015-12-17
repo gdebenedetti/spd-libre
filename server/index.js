@@ -1,6 +1,7 @@
 var proxyPath = '/api';
 var oauthPath = '/oauth';
 var appPath = '/app';
+var middlePath = '/user';
 
 var bodyParser = require('body-parser');
 var globSync   = require('glob').sync;
@@ -8,6 +9,7 @@ var globSync   = require('glob').sync;
 var apiProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'https://186.33.210.53:9000/apirest' } );
 var appProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'http://186.33.210.36' } );
 var oauthProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'https://186.33.210.56:9000/o' } );
+var middleProxy = require('./lib/fullNodeProxy.js').createProxyServer( { target: 'http://10.102.13.21:1337' } );
 
 var path = require('path');
 
@@ -37,6 +39,10 @@ module.exports = function(app) {
 
   app.use(oauthPath, function(req, res, next) {
     oauthProxy.web(req, res);
+  });
+
+  app.use(middlePath, function(req, res, next) {
+    middleProxy.web(req, res);
   });
 };
 

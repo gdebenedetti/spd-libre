@@ -7,6 +7,11 @@
 	</div>
 </div>
 
+
+{{#if searchs}}
+	{{view "select" content=searchs value=currentSearch optionLabelPath="content.name" prompt="Nueva Busqueda"}}
+{{/if}}
+
 {{#if showAvailableFilters}}
 <div class="add-filter-list side-panel-test">
 	<ul>
@@ -29,5 +34,15 @@
 	</div>
 
 	<a class="search-btn" {{action 'search'}}>{{fa-icon "search"}} Buscar</a>
+
+	{{#if currentSearch}} 
+		{{#if currentSearch.isSomeDirty}} 
+			<a {{action 'saveSearch'}}>Guardar</a>
+		{{/if}}
+	{{else}}
+		{{#if filters}}	
+			{{input type='text' value=searchName}} <a {{action 'createSearch'}}>Guardar Busqueda</a>
+		{{/if}}
+	{{/if}}
 </div>
 

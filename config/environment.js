@@ -71,7 +71,7 @@ module.exports = function(environment) {
      ENV.APP.LOG_TRANSITIONS_INTERNAL = false;
      ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-     ENV.APP.host = "https://spd.hcdn.gob.ar/";
+   /*  ENV.APP.host = "https://spd.hcdn.gob.ar/";
 
      ENV['simple-auth'] = {
          authorizer: 'simple-auth-authorizer:oauth2-bearer',
@@ -82,7 +82,16 @@ module.exports = function(environment) {
      ENV['simple-auth-oauth2'] = {
        serverTokenEndpoint: 'https://spd.hcdn.gob.ar/oauth/token/',
      };
+*/
 
+    ENV['simple-auth'] = {
+      authorizer: 'simple-auth-authorizer:oauth2-bearer',
+      session: 'session:custom'
+    };
+
+    ENV['simple-auth-oauth2'] = {
+      serverTokenEndpoint: 'oauth/token/',
+    };
   }
 
   if (environment === 'test') {

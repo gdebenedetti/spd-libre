@@ -2,6 +2,7 @@ import DRFSerializer from './drf';
 import Ember from 'ember';
 
 export default DRFSerializer.extend({
+	
 	serializeIntoHash: function(hash, type, record, options) {
 		hash.id = record.get('id');
 		Ember.merge(hash, this.serialize(record, options));
