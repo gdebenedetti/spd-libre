@@ -4,7 +4,6 @@
 	{{filter-panel availableFilters=availableFilters title="Proyectos" action='search' moduleName='proyecto' owner=session.user.cuil}}
 
 	<div class="proyectos">
-
 		{{transform-list items=model.proyectos model=model action="infinityLoad" partialItem='partials/proyecto-list-item' classContainer="proyecto-container"}}
 	</div>
 </div>

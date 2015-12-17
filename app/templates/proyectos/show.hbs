@@ -2,7 +2,13 @@
 
 {{#liquid-if model class="side-panel anim-article show"}}
 <article class="proyectos-article">
-	<time class="proyecto-fecha">{{time-format model.fecha 'Do [de] MMMM [de] YYYY'}}</time> 
+	<time class="proyecto-fecha">
+		{{time-format model.fecha 'Do [de] MMMM [de] YYYY'}}
+		{{#if model.fecha_caducidad}}
+			/ {{time-format model.fecha_caducidad 'Do [de] MMMM [de] YYYY'}}
+		{{/if}}
+	</time>
+
 	{{#perfect-scroll wheelSpeed=2}}
 		
 		<h2>{{model.tipo_proy}} <br> {{model.codigo_exp}}</h2>
