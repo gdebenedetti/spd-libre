@@ -75,7 +75,7 @@ export default function(){
 		// this makes our rule apply when the liquid-if transitions to the
 		// true state.
 		this.toValue(true),
-		this.use('toLeft',  {duration: 500, delay: 0, easing: [ 0.7,0,0.3,1 ]}),
+		this.use('toLeft',  {duration: 800, delay: 0, easing: [ 0.7,0,0.3,1 ]}),
 		this.reverse('toRight',  {duration: 800, delay: 0, easing: [ 0.7,0,0.3,1 ]})
 	  );
 	

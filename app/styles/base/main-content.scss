@@ -28,9 +28,14 @@
 
 		.-actions {
 			position: fixed;
-			right: 26px;
+			right: -150px;
 			top: 10px;
 			display: flex;
+			 @include transition(all .4s cubic-bezier(0.7,0,.3,1));
+
+			@include media($desktop) {
+	    	    right: 26px;
+			}
 		}
 
 		.item {

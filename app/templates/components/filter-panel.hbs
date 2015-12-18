@@ -1,48 +1,55 @@
 <div class="heading">
 	<h1>{{title}}</h1>
-	<div class="-actions" {{action 'toggleShowAvailableFilters'}}>
-		<div class="item sort">
+	<div class="-actions" >
+		<div class="item sort" {{action 'toggleShowAvailableFilters'}}>
 			{{fa-icon 'filter'}} Agregar filtros
 		</div>
+		
 	</div>
 </div>
 
 
-{{#if searchs}}
-	{{view "select" content=searchs value=currentSearch optionLabelPath="content.name" prompt="Nueva Busqueda"}}
-{{/if}}
+	<div {{bind-attr class=":filter-container showAvailableFilters:show"}}>
+		
+		<div class="current-search">
+			{{#if currentSearch}} 
+				{{input type='text' value=currentSearch.name}}
+				{{#if currentSearch.isSomeDirty}} 
+					<a {{action 'saveSearch'}}>{{fa-icon 'check'}}</a>
+				{{/if}}
+				<a {{action 'removeSearch'}}>{{fa-icon 'trash-o'}}</a>
+			{{else}}
+				{{input type='text' value=searchName placeholder="Nombre de la busqueda"}}
+				<a {{action 'createSearch'}}>{{fa-icon 'check'}}</a>
+			{{/if}}
+		</div>
 
-{{#if showAvailableFilters}}
-<div class="add-filter-list side-panel-test">
-	<ul>
-	{{#each availableFiltersList as |availableFilter|}}
-		<li> 
-			{{availableFilter.name}} 
-			<a {{action 'addFilter' availableFilter}}> Agregar </a>
-		</li>
-	{{/each}} 
-	</ul>
-</div>
-{{/if}}
+		{{#if searchs}}
+			<div class="item">
+				{{view "select" content=searchs value=currentSearch optionLabelPath="content.name" prompt="Nueva Busqueda" }}
+			</div>
+		{{/if}}
 
+		<a class="search-btn" {{action 'search'}}>{{fa-icon "search"}} Buscar</a>
 
-<div class="filter-container">
-	<div class="filter-box">
-	{{#each filters as |filter|}}
-		{{filter-item filter=filter class="search-filter" action="removeFilter"}}
-	{{/each}}
+		<div class="filter-box">
+		{{#each filters as |filter|}}
+			{{filter-item filter=filter class="search-filter" action="removeFilter"}}
+		{{/each}}
+		</div>
+		
+		<ul class="filter-available">
+		{{#each availableFiltersList as |availableFilter|}}
+			<li> 
+				<a {{action 'addFilter' availableFilter}}> {{fa-icon 'plus'}} </a>
+				<span>{{availableFilter.name}}</span>
+			</li>
+		{{/each}} 
+		</ul>
+
+		
+
+		
+
 	</div>
-
-	<a class="search-btn" {{action 'search'}}>{{fa-icon "search"}} Buscar</a>
-
-	{{#if currentSearch}} 
-		{{#if currentSearch.isSomeDirty}} 
-			<a {{action 'saveSearch'}}>Guardar</a>
-		{{/if}}
-	{{else}}
-		{{#if filters}}	
-			{{input type='text' value=searchName}} <a {{action 'createSearch'}}>Guardar Busqueda</a>
-		{{/if}}
-	{{/if}}
-</div>
 

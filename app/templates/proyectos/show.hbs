@@ -26,22 +26,33 @@
 
 		<p class="titulo">{{model.titulo}}</p>
 
-		<h3>Sumario</h3>
-		<p class="sumario">{{model.sumario}}</p>
+		{{#if model.sumario}}
+			<h3>Sumario</h3>
+			<p class="sumario">{{model.sumario}}</p>
+		{{/if}}
 
+		{{#if model.firmantes}}
 		<h3>Firmantes</h3>
 		<ul>
 		{{#each model.firmantes as |firmante|}}
-			<li>{{firmante.nombre_leg_func}} {{firmante.distrito}} {{firmante.nombre_del_bloque}} </li>
+			<li>
+				<div class="title">{{firmante.nombre_leg_func}}</div>
+				<small>{{firmante.distrito}}</small>
+				<i>{{firmante.nombre_del_bloque}}</i>
+			</li>
 		{{/each}}
 		</ul>
+		{{/if}}
 
-		<h3>Giros</h3>
-		<ul>
-		{{#each model.giros as |giro|}}
-			<li>{{giro.fk_comision.datos.nombre}}</li>
-		{{/each}}
-		</ul>
+		{{#if model.giros}}
+			<h3>Giros</h3>
+			<ul>
+			{{#each model.giros as |giro|}}
+				<li>{{giro.fk_comision.datos.nombre}}</li>
+			{{/each}}
+			</ul>
+		{{/if}}
+
 	{{/perfect-scroll}}
 </article>
 {{/liquid-if}}

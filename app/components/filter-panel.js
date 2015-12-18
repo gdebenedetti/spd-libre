@@ -30,7 +30,9 @@ export default Ember.Component.extend({
 		var list = this.get('availableFilters');
 		var wo = [];
 
-		this.get('filters').forEach(function (filter) {
+		var fs = this.get('filters') || [];
+
+		fs.forEach(function (filter) {
 			var t = _this.get('availableFilters').findBy('name', filter.get('type').name);
 			wo.pushObject(t);
 		});
@@ -57,7 +59,7 @@ export default Ember.Component.extend({
 
 			this.get('filters').pushObject(filter);
 
-			this.toggleProperty('showAvailableFilters');
+			//this.toggleProperty('showAvailableFilters');
 
 			if (this.get('currentSearch')) {
 				this.get('currentSearch').get('filters').pushObject(filter);

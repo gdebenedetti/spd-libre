@@ -1,4 +1,9 @@
 .ps-container {
-	height: 80vh;
+	height: calc(100vh - 60px);
 	position: relative;
+	padding: 0 5%;
+
+    @include media($mobile) {
+	     height: calc(100vh - 110px)
+	}
 }
