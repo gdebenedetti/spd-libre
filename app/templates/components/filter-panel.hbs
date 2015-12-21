@@ -8,48 +8,42 @@
 	</div>
 </div>
 
-
-	<div {{bind-attr class=":filter-container showAvailableFilters:show"}}>
-		
-		<div class="current-search">
-			{{#if currentSearch}} 
-				{{input type='text' value=currentSearch.name}}
-				{{#if currentSearch.isSomeDirty}} 
-					<a {{action 'saveSearch'}}>{{fa-icon 'check'}}</a>
-				{{/if}}
-				<a {{action 'removeSearch'}}>{{fa-icon 'trash-o'}}</a>
-			{{else}}
-				{{input type='text' value=searchName placeholder="Nombre de la busqueda"}}
-				<a {{action 'createSearch'}}>{{fa-icon 'check'}}</a>
+<div {{bind-attr class=":filter-container showAvailableFilters:show"}}>
+	
+	<div class="current-search">
+		{{#if currentSearch}} 
+			{{input type='text' value=currentSearch.name}}
+			{{#if currentSearch.isSomeDirty}} 
+				<a class="save-search" {{action 'saveSearch'}}>{{fa-icon 'check'}}</a>
 			{{/if}}
-		</div>
-
-		{{#if searchs}}
-			<div class="item">
-				{{view "select" content=searchs value=currentSearch optionLabelPath="content.name" prompt="Nueva Busqueda" }}
-			</div>
+			<a class="remove-search" {{action 'removeSearch'}}>{{fa-icon 'trash-o'}}</a>
+		{{else}}
+			{{input type='text' value=searchName}}
+			<a class="create-search" {{action 'createSearch'}}>{{fa-icon 'plus'}}</a>
 		{{/if}}
-
-		<a class="search-btn" {{action 'search'}}>{{fa-icon "search"}} Buscar</a>
-
-		<div class="filter-box">
-		{{#each filters as |filter|}}
-			{{filter-item filter=filter class="search-filter" action="removeFilter"}}
-		{{/each}}
-		</div>
-		
-		<ul class="filter-available">
-		{{#each availableFiltersList as |availableFilter|}}
-			<li> 
-				<a {{action 'addFilter' availableFilter}}> {{fa-icon 'plus'}} </a>
-				<span>{{availableFilter.name}}</span>
-			</li>
-		{{/each}} 
-		</ul>
-
-		
-
-		
-
 	</div>
+
+	{{#if searchs}}
+		<div class="item">
+			{{view "select" content=searchs value=currentSearch optionLabelPath="content.name" prompt="Nueva Busqueda" }}
+		</div>
+	{{/if}}
+
+	<a class="search-btn" {{action 'search'}}>{{fa-icon "search"}} Buscar</a>
+
+	<div class="filter-box">
+	{{#each filters as |filter|}}
+		{{filter-item filter=filter class="search-filter" action="removeFilter"}}
+	{{/each}}
+	</div>
+	
+	<ul class="filter-available">
+	{{#each availableFiltersList as |availableFilter|}}
+		<li> 
+			<a {{action 'addFilter' availableFilter}}> {{fa-icon 'plus'}} </a>
+			<span>{{availableFilter.name}}</span>
+		</li>
+	{{/each}} 
+	</ul>
+</div>
 

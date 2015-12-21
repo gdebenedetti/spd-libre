@@ -86,6 +86,23 @@ export default Ember.Component.extend({
 			}
 		},
 
+		removeSearch: function () {
+			var promises = [];
+			var _this = this;
+
+			if (this.get('currentSearch')) {
+
+				this.get('currentSearch.filters').forEach(function (filter) {
+					promises.push(filter.destroyRecord());
+				});	
+
+				Ember.RSVP.Promise.all(promises).then(function(){ 
+					_this.get('currentSearch').destroyRecord();
+					_this.set('currentSearch', null);
+				});			
+			}
+		},		
+
 		createSearch: function () {
 			var promises = [];
 			var _this = this;
