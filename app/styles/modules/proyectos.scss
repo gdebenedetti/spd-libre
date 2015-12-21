@@ -6,7 +6,7 @@ $desktop: new-breakpoint(max-width 993px 12);
     padding: 0 25px;
     display: block;
     float: left;
-    width: calc(100% - 250px);
+    width: calc(100% - 320px);
 
     @include media($desktop) {
 	     width: 100%;

@@ -115,3 +115,7 @@ z-index: layer(header);
 .user-login {
 z-index: layer(header);
 }
+
+.filter-container {
+	z-index: layer(header) + 3;
+}

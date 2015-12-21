@@ -78,11 +78,8 @@ export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
 
 			Ember.Object.create({
 				name: 'Comision',
-				field: 'giro_comision_id',
-				template: 'model-select',
-				valueField: 'content.id',
-				labelField: 'content.datos.nombre',
-				model: 'comision'
+				field: 'giro_comision_nombre',
+				template: 'input-text',
 			}),
 		]);
 

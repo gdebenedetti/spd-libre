@@ -143,7 +143,8 @@ export default Ember.Component.extend({
 		},
 
 		search: function () {
-			this.sendAction('action', this.get('filters'))
+			this.sendAction('action', this.get('filters'));
+			this.toggleProperty('showAvailableFilters');
 		},
 	},	
 });

@@ -23,14 +23,6 @@
     @include animation-fill-mode(forwards);
     @include prefixer(backface-visibility, hidden, webkit moz spec);
 }
-
-.side-panel-test {
-    @include animation-name(slideOpen);
-    @include animation-duration(.3s);
-    @include animation-timing-function(ease-out);
-    @include animation-fill-mode(forwards);
-    @include prefixer(backface-visibility, hidden, webkit moz spec);
-}
  
 .side-panel.close {
     @include animation-name(slideClosed);
@@ -39,6 +31,26 @@
     @include animation-fill-mode(forwards);
     @include prefixer(backface-visibility, hidden, webkit moz o spec);
 }
+
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #fff;
+    padding: 0;
+    bottom: 0;
+    width: calc(100% - 180px);
+
+    @include media($desktop) {
+        width: 100%;
+    }
+
+
+    @include media($mobile) {
+        width: 100%;
+    }
+}
+
  
 .loading .wrapper {
     @include animation(none);

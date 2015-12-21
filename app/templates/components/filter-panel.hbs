@@ -1,26 +1,40 @@
 <div class="heading">
 	<h1>{{title}}</h1>
 	<div class="-actions" >
-		<div class="item sort" {{action 'toggleShowAvailableFilters'}}>
-			{{fa-icon 'filter'}} Agregar filtros
-		</div>
-		
+	<div {{bind-attr class=":item :filter showAvailableFilters:active"}} {{action 'toggleShowAvailableFilters'}}>
+		{{fa-icon 'filter'}} Filtros
+	</div>
 	</div>
 </div>
 
 <div {{bind-attr class=":filter-container showAvailableFilters:show"}}>
 	
 	<div class="current-search">
+		<fieldset style="position: relative;">
+			
 		{{#if currentSearch}} 
+			{{#if currentSearch.isSomeDirty}} 
+			<b>Guardar cambios</b>
+			{{else}}
+			<b>Editar busqueda</b>
+			{{/if}}
 			{{input type='text' value=currentSearch.name}}
 			{{#if currentSearch.isSomeDirty}} 
-				<a class="save-search" {{action 'saveSearch'}}>{{fa-icon 'check'}}</a>
+				{{#tool-tipster title="Guardar cambios" position="left" class="save-search"}} 
+					<a {{action 'saveSearch'}}>{{fa-icon 'check'}}</a>
+				{{/tool-tipster}}
 			{{/if}}
-			<a class="remove-search" {{action 'removeSearch'}}>{{fa-icon 'trash-o'}}</a>
+			{{#tool-tipster title="Eliminar busqueda" position="left" class="delete-search"}} 
+			<a {{action 'removeSearch'}}>{{fa-icon 'trash'}}</a>
+			{{/tool-tipster}}
 		{{else}}
+			<b>Guardar busqueda</b>
 			{{input type='text' value=searchName}}
-			<a class="create-search" {{action 'createSearch'}}>{{fa-icon 'plus'}}</a>
+			{{#tool-tipster title="Guardar busqueda" position="left" class="save-search"}} 
+				<a {{action 'createSearch'}}>{{fa-icon 'check'}}</a>
+			{{/tool-tipster}}
 		{{/if}}
+		</fieldset>
 	</div>
 
 	{{#if searchs}}
@@ -30,6 +44,8 @@
 	{{/if}}
 
 	<a class="search-btn" {{action 'search'}}>{{fa-icon "search"}} Buscar</a>
+
+	{{#perfect-scroll wheelSpeed=2}}
 
 	<div class="filter-box">
 	{{#each filters as |filter|}}
@@ -45,5 +61,7 @@
 		</li>
 	{{/each}} 
 	</ul>
+
+	{{/perfect-scroll}}
 </div>
 
