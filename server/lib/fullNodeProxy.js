@@ -48,6 +48,24 @@ fullNodeProxy.prototype.web = function(req, res) {
                 }).pipe(res);
             } 
 
+            if (req.method === 'PUT') {
+                require('request').put({
+                    uri:this.target+req.url,
+                    headers: headers,
+                    form:req.body
+                    },function(err,response,body){
+                }).pipe(res);
+            }      
+
+            if (req.method === "DELETE") {
+                require('request').del({
+                    uri:this.target+req.url,
+                    headers: headers,
+                    form:req.body
+                    },function(err,response,body){
+                }).pipe(res);
+            }                    
+
             if (req.method === "OPTIONS") {
               headers["Access-Control-Allow-Origin"] = "*";
               headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
