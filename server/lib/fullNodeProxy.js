@@ -58,7 +58,7 @@ fullNodeProxy.prototype.web = function(req, res) {
             }      
 
             if (req.method === "DELETE") {
-                require('request').delete({
+                require('request').del({
                     uri:this.target+req.url,
                     headers: headers,
                     form:req.body
