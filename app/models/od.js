@@ -9,5 +9,13 @@ export default DS.Model.extend({
 	despacho: DS.belongsTo('despacho', {async: true}),
 	numero: DS.attr('number'),
 	anio: DS.attr('number'),
-	fecha_art113: DS.attr('date')
+	fecha_art113: DS.attr('date'),
+
+	proyecto_cabecera: Ember.computed('proyectos.@each', function () {
+		if (this.get('proyectos')) {
+			return this.get('proyectos').firstObject();
+		} else {
+			return null;
+		}
+	}),
 });

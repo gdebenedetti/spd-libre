@@ -63,6 +63,8 @@ export default Ember.Mixin.create({
     @param {Object} options Optional, the perPage and startingPage to load from.
     @return {Ember.RSVP.Promise}
   */
+
+
   infinityModel: function(modelName, options) {
     var _this = this;
 
@@ -95,6 +97,7 @@ export default Ember.Mixin.create({
         var totalPages = Math.round(infinityModel.get('meta.total_pages') / _this.get('_perPage'));
         _this.set('_currentPage', startingPage);
         _this.set('_totalPages', totalPages);
+        //_this.set('count', infinityModel.get('meta.total_pages'));
         //infinityModel.set('reachedInfinity', !_this.get('_canLoadMore'));
         //_this.set('controller.model.reachedInfinity', !_this.get('_canLoadMore'));
         infinityModel.set('reachedInfinity', !_this.get('_canLoadMore'));
