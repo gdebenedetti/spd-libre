@@ -6,12 +6,12 @@ export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
 	_listName: 'model',
 
 	model: function() {
-	  	return this.infinityModel("od", { perPage: 25, startingPage: 1, publicadas: true, ordering: '-periodo, -numero'});
+	  	return this.infinityModel("od", { perPage: 25, startingPage: 1, publicadas: "True", ordering: '-periodo, -numero'});
 	},	
 
 	actions: {
 		search: function (filters) {
-			var query = {perPage: 25, startingPage: 1, ordering: '-periodo, -numero', publicadas: true};
+			var query = {perPage: 25, startingPage: 1, ordering: '-periodo, -numero', publicadas: "True"};
 			filters.forEach(function (filter) {
 				var value = filter.get('value');
 				//console.log(Ember.typeOf(value));

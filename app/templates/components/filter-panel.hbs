@@ -38,12 +38,16 @@
 	</div>
 
 	{{#if searchs}}
-		<div class="item">
+		<div class="search-select">
 			{{view "select" content=searchs value=currentSearch optionLabelPath="content.name" prompt="Nueva Busqueda" }}
 		</div>
 	{{/if}}
 
-	<a class="search-btn" {{action 'search'}}>{{fa-icon "search"}} Buscar</a>
+	
+	<a class="search-btn" {{action 'search'}}>
+		{{fa-icon "search"}}
+		Buscar
+	</a>
 
 	{{#perfect-scroll wheelSpeed=2}}
 

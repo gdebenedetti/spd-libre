@@ -2,6 +2,23 @@ $mobile: new-breakpoint(max-width 650px 6);
 $tablet: new-breakpoint(max-width 768px 12);
 $desktop: new-breakpoint(max-width 993px 12);
 
+@charset "UTF-8";
+
+@if $border-box-sizing == true {
+  html { // http://bit.ly/1qk2tVR
+    @include box-sizing(border-box);
+  }
+
+  * {
+    &,
+    &:before,
+    &:after {
+      @include box-sizing(inherit);
+    }
+  }
+}
+
+
 
 $layer: (
   offcanvas: 1,

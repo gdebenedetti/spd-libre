@@ -28,26 +28,26 @@ $desktop: new-breakpoint(max-width 993px 12);
 	     right: -650px;
 	}
 
-	select {
-width: 100%;
-    padding: 5px 0 5px 0;
-    background: none;
-    border: none;
-    border-bottom: 1px solid #3498DB;
-    margin: 0 0 14px 0;
-    font-size: 16px;
-    color: #3498DB;
+	.search-select {
+		margin-bottom: 7px;
+
+		select {
+			width: 100%;
+		    padding: 5px 0 5px 0;
+		    background: none;
+		    border: none;
+		    border-bottom: 1px solid #3498DB;
+		    margin: 0;
+		    font-size: 16px;
+		    color: #3498DB;
+		}
 	}
-	
 
 	.ps-container {
 		height: 60vh;
 		padding: 5px 0 0 0;
 		width: 100%;
 	}
-
-
-	
 
 	.search-filter {
 	    flex: 1 1 200px;
@@ -58,10 +58,10 @@ width: 100%;
 		
 
 			@include media($mobile) {
-			    flex: 1 1 100%;
-			    position: relative;
-			    margin: 0 0 18px 0;
-			    padding-right: 30px;
+				//flex: 1 1 100%;
+				//position: relative;
+				//margin: 0 0 18px 0;
+				//padding-right: 30px;
 			}
 
 		    
@@ -71,13 +71,17 @@ width: 100%;
 		}
 
 		.reset-filter {
-			position: absolute;
-			right: 2px;
-			font-size: 17px;
-			color: #999;
-			top: 1px;
-			font-weight: 600;
-			cursor: pointer;
+		    position: absolute;
+		    right: 2px;
+		    font-size: 17px;
+		    top: 17px;
+		    font-weight: 600;
+		    cursor: pointer;
+		    width: 35px;
+		    height: 35px;
+		    line-height: 35px;
+		    text-align: center;
+		    color: #888;
 		}
 
 		
@@ -91,7 +95,7 @@ width: 100%;
 
 		select, input {
 		    position: relative;
-		    width: 100%;
+		    width: calc(100% - 40px);
 		    padding: 6px;
 		    margin-top: 5px;
 		    background: #fff;
@@ -152,7 +156,7 @@ width: 100%;
 			    padding: 6px;
     text-align: center;
     float: right;
-    width: 35px;
+    width: 40px;
     cursor: pointer;
 	    }
 	}
@@ -182,6 +186,7 @@ width: 100%;
     width: 345px;
     background: #dfdfdf;
     padding: 20px;
+    z-index: 1;
     @include transition(all .4s cubic-bezier(0.7,0,.3,1));
 
     @include media($desktop) {

@@ -24,6 +24,11 @@
 
 		h1 {
 
+
+			 @include media($mobile) {
+			    margin-top: 5px;
+				font-size: 24px;
+			}
 		}
 
 		.-actions {
@@ -41,31 +46,31 @@
 		}
 
 		.item {
-			    cursor: pointer;
-    width: auto;
-    line-height: 70px;
-    height: 50px;
-    font-size: 16px;
-    text-align: center;
-    margin: 0 5px;
-    font-weight: 600;
-     @include transition(all .4s cubic-bezier(0.7,0,.3,1));
-     color: #3498DB;
+			cursor: pointer;
+			width: auto;
+			line-height: 60px;
+			height: 50px;
+			font-size: 16px;
+			text-align: center;
+			margin: 0 5px;
+			font-weight: 600;
+			@include transition(all .4s cubic-bezier(0.7,0,.3,1));
+			color: #3498DB;
 
-	&:hover {
-		color: shade(#3498DB, 10%);
-	}
+			&:hover {
+				color: shade(#3498DB, 10%);
+			}
 
-    &.active {
-    	color: #AAB7B8;
-    }
+		    &.active {
+		    	color: #AAB7B8;
+		    }
 
-    .fa {
-    	margin-right: 5px;
+		    .fa {
+		    	margin-right: 5px;
+				}
+		    }
+
 		}
-    }
-
-	}
 
 	section {
 		@include span-columns(12);

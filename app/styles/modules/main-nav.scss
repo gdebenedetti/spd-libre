@@ -11,18 +11,18 @@ $mobile-height: new-breakpoint(max-height 620px 12);
 	padding: 0;
 
 	li {
-		padding: 15px 0 20px 0;
+		padding: 0;
 		float: left;
 		width: 100%;
-	    border-bottom: 1px solid darken($main-blue, 5%);
-	    	-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+		border-bottom: 1px solid darken($main-blue, 5%);
+		-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
 		transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-	-webkit-transition: all 0.6s;
-	transition: all 0.6s;
+		-webkit-transition: all 0.6s;
+		transition: all 0.6s;
 
-	@include media($mobile) {
-    	padding: 15px 0 10px 0;
-	}
+		@include media($mobile) {
+	    	padding: 15px 0 10px 0;
+		}
 
 	   &:hover {
 			background: lighten($main-blue, 10%);
@@ -39,9 +39,10 @@ $mobile-height: new-breakpoint(max-height 620px 12);
 		width: 100%;
 		-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
 		transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-	-webkit-transition: all 0.6s;
-	transition: all 0.6s;
-	border-left: 5px solid $main-blue;
+		-webkit-transition: all 0.6s;
+		transition: all 0.6s;
+		border-left: 5px solid $main-blue;
+		padding: 15px;
 	}
 
 	span {
@@ -66,7 +67,19 @@ $mobile-height: new-breakpoint(max-height 620px 12);
 	    border-left: 5px solid $white;
 
 		.fa-folder-o:before {
-			content: "\f115";
+			content: "\f07c";
+		}
+
+		.fa-comments-o:before {
+			content: "\f086";
+		}
+
+		.fa-list-ul:before {
+			content: "\f0cb";
+		}
+
+		.fa-calendar-o:before {
+			content: "\f274";
 		}
 
 	}

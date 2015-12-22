@@ -20,6 +20,7 @@
 	@include transition(all 0.2s ease-in-out);
     color: #1B4F72;
 	opacity: 0;
+    @include transform(scale(0.8));
 
 	&:hover {
 		//background: darken($main-blue, 5%);
