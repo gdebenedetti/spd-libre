@@ -15,7 +15,7 @@ export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
 			var query = {perPage: 25, startingPage: 1, ordering: '-codigo_anio, -codigo_num, -codigo_origen'};
 			filters.forEach(function (filter) {
 				var value = filter.get('value');
-				//console.log(Ember.typeOf(value));
+				//console.log(Ember.typeOf(value));	
 				query[filter.get('type.field')] = value;
 			})
 			this.set('controller.model.reachedInfinity', false);
@@ -29,6 +29,13 @@ export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
 		var availableFilters = [];
 
 		availableFilters.pushObjects([
+
+			Ember.Object.create({
+				name: 'Texto Libre',
+				template: 'input-text',
+				field: 'search'
+			}),
+
 			Ember.Object.create({
 				name: 'Periodo',
 				template: 'input-number',

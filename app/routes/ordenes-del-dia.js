@@ -28,6 +28,13 @@ export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
 		var availableFilters = [];
 
 		availableFilters.pushObjects([
+
+			Ember.Object.create({
+				name: 'Texto Libre',
+				template: 'input-text',
+				field: 'search'
+			}),
+
 			Ember.Object.create({
 				name: 'Periodo',
 				template: 'input-number',
@@ -40,9 +47,6 @@ export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
 				template: 'simple-select',
 				field: 'tipo_camara'
 			}),
-
-			
-
 
 		]);
 
